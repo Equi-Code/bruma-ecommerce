@@ -1,7 +1,6 @@
 /* =========================
    Tarjeta de producto — BRUMA (CSS Module)
-   Los var(--token) vienen de index.css (global): no hace falta importarlos aquí.
-   ========================= */
+ */
 
 .tarjeta {
   /* Tokens locales */

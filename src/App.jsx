@@ -3,6 +3,7 @@ import Layout from './components/Layout.jsx';
 // import TarjetaProducto from './components/TarjetaProducto.jsx';
 import ItemListContainer from './components/ItemListContainer.jsx';
 import Contacto from './components/Contacto.jsx';
+import { FormularioContainer } from './components/FormularioContainer.jsx';
 
 export default function App() {
 
@@ -35,6 +36,8 @@ export default function App() {
 
 
         <Contacto />
+
+        <FormularioContainer/>
 
         
 

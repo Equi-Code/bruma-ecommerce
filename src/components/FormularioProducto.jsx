@@ -1,97 +1,104 @@
 import Styles from '../css/Formulario.module.css'
 
-
 export default function FormularioProducto({ datosForm, manejarCambio, manejarEnvio }) {
 
-
-
     return (
-
         <form className={Styles.form} onSubmit={manejarEnvio}>
-            <h3 className={Styles.tittleForm}>Agregar Nuevo Producto</h3>
-            <div>
-                <label className={Styles.label} htmlFor="nombre">Nombre del Producto</label>
-                <input className={Styles.input} type="text" placeholder='Ej: Brasil' name="nombre "
 
+            <h2 className={Styles.tituloForm}>Agregar nuevo producto</h2>
+
+            <div className={Styles.campo}>
+                <label className={Styles.label} htmlFor="nombre">Nombre del producto</label>
+                <input
+                    className={Styles.input}
+                    id="nombre"
+                    name="nombre"
+                    type="text"
+                    placeholder="Ej: Brasil"
                     value={datosForm.nombre}
                     onChange={manejarCambio}
-
+                    autoComplete="off"
+                    required
                 />
-                <div>
-                    <label className={Styles.label}>Precio:</label>
-                    <input className={Styles.input} type="number" placeholder="Ej: 95"
-                        name="precio" // Atributo clave
-                        value={datosForm.precio}
-                        onChange={manejarCambio}
-                    />
-                </div>
-
-                <div>
-                    <label className={Styles.label}>Tipo:</label>
-                    <input className={Styles.input} type="text" placeholder="Ej: Torrado"
-                        name="tipo" // Atributo clave
-                        value={datosForm.tipo}
-                        onChange={manejarCambio}
-
-                    />
-                </div>
-
-
-                <div>
-                    <label className={Styles.label}>Descripcion:</label>
-                    <input className={Styles.input} type="text" placeholder="Ej: Surtido de 25 Cápsulas compatibles con Nespresso."
-                        name="descripcion" // Atributo clave
-                        value={datosForm.descripcion}
-                        onChange={manejarCambio}
-
-                    />
-                </div>
-
-                <div>
-                    <label className={Styles.label}>Stock:</label>
-                    <input className={Styles.input} type="number" placeholder="Ej: 5"
-
-
-                        name="stock" // Atributo clave
-                        value={datosForm.stock}
-                        onChange={manejarCambio}
-
-
-
-                    />
-                </div>
-
-
-
-
-                <div>
-                    <label className={Styles.label} >Imagen:</label>
-                    <input className={Styles.input} type="file" placeholder="https://..."
-
-
-
-                        name="imagen" // Atributo clave
-                        value={datosForm.imagen}
-                        onChange={manejarCambio}
-
-
-                    />
-                </div>
-
-
-
-
-                <button type="submit">Guardar Producto</button>
-
             </div>
 
+            <div className={Styles.campo}>
+                <label className={Styles.label} htmlFor="tipo">Tipo</label>
+                <input
+                    className={Styles.input}
+                    id="tipo"
+                    name="tipo"
+                    type="text"
+                    placeholder="Ej: Tostado medio"
+                    value={datosForm.tipo}
+                    onChange={manejarCambio}
+                    autoComplete="off"
+                    required
+                />
+            </div>
 
+            <div className={Styles.campo}>
+                <label className={Styles.label} htmlFor="descripcion">Descripción</label>
+                <textarea
+                    className={`${Styles.input} ${Styles.textarea}`}
+                    id="descripcion"
+                    name="descripcion"
+                    placeholder="Ej: Surtido de 25 cápsulas compatibles con Nespresso."
+                    value={datosForm.descripcion}
+                    onChange={manejarCambio}
+                    required
+                />
+            </div>
 
+            <div className={Styles.fila}>
+                <div className={Styles.campo}>
+                    <label className={Styles.label} htmlFor="precio">Precio ($)</label>
+                    <input
+                        className={Styles.input}
+                        id="precio"
+                        name="precio"
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        placeholder="Ej: 9500"
+                        value={datosForm.precio}
+                        onChange={manejarCambio}
+                        required
+                    />
+                </div>
 
+                <div className={Styles.campo}>
+                    <label className={Styles.label} htmlFor="stock">Stock</label>
+                    <input
+                        className={Styles.input}
+                        id="stock"
+                        name="stock"
+                        type="number"
+                        min="0"
+                        step="1"
+                        placeholder="Ej: 5"
+                        value={datosForm.stock}
+                        onChange={manejarCambio}
+                        required
+                    />
+                </div>
+            </div>
 
+            <div className={Styles.campo}>
+                <label className={Styles.label} htmlFor="imagen">Imagen</label>
+                <input
+                    className={Styles.input}
+                    id="imagen"
+                    name="imagen"
+                    type="file"
+                    accept="image/*"
+                    onChange={manejarCambio}
+                />
+                <p className={Styles.ayuda}>PNG, JPG o WebP. Mejor si es vertical (4:5).</p>
+            </div>
 
+            <button type="submit" className={Styles.boton}>Guardar producto</button>
 
         </form>
-
     )
 }
