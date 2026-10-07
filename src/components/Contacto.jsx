@@ -8,7 +8,7 @@ export default function Contacto() {
             <div className={Styles.contactoContainer}>
 
                 <img
-                    src="../src/assets/img/contacto.jpg"
+                    src="/img/contacto.jpg"
                     alt="Café de especialidad BRUMA"
                     className={Styles.contactoImagen}
                 />
