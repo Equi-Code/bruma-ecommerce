@@ -1,0 +1,255 @@
+
+.footer {
+  --footer-bg: #E8DED0;
+  --footer-text: #3E3026;
+  --footer-muted: #6B533E;      
+  --footer-border: #D8C8B6;
+  --footer-card: rgba(243, 239, 231, 0.45);
+  --footer-role: #6F533A;         --footer-link: var(--text);
+  --footer-link-hover: var(--accent-hover);
+
+  width: 100%;
+  margin-top: var(--space-xl);
+  padding: 70px var(--space-md) 30px;
+
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+@media (prefers-color-scheme: dark) {
+  .footer {
+    --footer-bg: #1F1C19;
+    --footer-text: #EFE7DA;
+    --footer-muted: #B9A98F;
+    --footer-border: #3A3631;
+    --footer-card: rgba(243, 239, 231, 0.04);
+    --footer-role: #C8B89A;
+  }
+}
+
+.footer .contenedor {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* =========================
+   Marca y títulos
+   ========================= */
+
+.footerLogo {
+  text-align: center;
+}
+
+.footerTitle {
+  margin-bottom: 12px;
+
+  /* Compensa el letter-spacing final para centrar ópticamente */
+  padding-left: 0.12em;
+
+  font-family: var(--heading);
+  font-size: 2.25rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+
+  color: var(--footer-text);
+}
+
+.footerSubtitle {
+  padding-left: 0.25em;
+
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  color: var(--footer-muted);
+}
+
+/* =========================
+   Equipo
+   ========================= */
+
+.footerTeam {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+  justify-content: center;
+  gap: 30px;
+
+  width: 100%;
+}
+
+.teamCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 32px var(--space-md) 28px;
+
+  border: 1px solid var(--footer-border);
+  border-radius: var(--radius-md);
+  background-color: var(--footer-card);
+
+  text-align: center;
+}
+
+.teamCard .imagen {
+  display: block;
+
+  width: 180px;
+  height: 220px;
+  margin-bottom: var(--space-md);
+
+  object-fit: cover;
+  border-radius: 90px 90px 0 0;
+}
+
+/* Nombre */
+.teamCard h3 {
+  margin-bottom: 8px;
+
+  font-family: var(--heading);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.15;
+  text-wrap: balance;
+
+  color: var(--footer-text);
+}
+
+
+.teamCard p {
+  overflow-wrap: anywhere;
+}
+
+
+.teamCard p:last-of-type {
+  order: 1;
+
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+
+  color: var(--footer-role);
+}
+
+.teamCard p:first-of-type {
+  order: 2;
+  margin-top: 6px;
+
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+
+  color: var(--footer-muted);
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footerLink {
+  position: relative;
+
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: var(--footer-link);
+  transition: color var(--ease);
+}
+
+/* Subrayado animado (usa el position: relative que ya tenías) */
+.footerLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  width: 100%;
+  height: 1px;
+
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--ease);
+}
+
+.footerLink:hover,
+.footerLink:focus-visible {
+  color: var(--footer-link-hover);
+}
+
+.footerLink:hover::after,
+.footerLink:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.footerSocial {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.footerSocialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 44px;
+  min-height: 44px;
+
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: var(--footer-link);
+  transition: color var(--ease);
+}
+
+.footerSocialLink:hover,
+.footerSocialLink:focus-visible {
+  color: var(--footer-link-hover);
+}
+
+.socialIcon {
+  display: block;
+  width: 24px;
+  height: 24px;
+
+  /* Hereda el color del link (funciona con SVG inline) */
+  fill: currentColor;
+}
+
+
+.footerText {
+  padding-top: 25px;
+
+  border-top: 1px solid var(--footer-border);
+
+  text-align: center;
+  font-size: 0.75rem;
+
+  color: var(--footer-muted);
+}
+
+@media (max-width: 700px) {
+  .footer {
+    padding: 60px var(--space-sm) 25px;
+  }
+
+  .footerTitle {
+    font-size: 1.9rem;
+  }
+
+  .footerLinks {
+    gap: var(--space-md);
+  }
+}

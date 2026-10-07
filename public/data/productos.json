@@ -1,0 +1,30 @@
+[
+                {
+                        "id": 1,
+                        "nombre": "Blend molido",
+                        "precio": 5500,
+                        "tipo": "Cafe en granos",
+                        "descripcion": "Café cremoso, de intensidad intermedia.",
+                        "stock": 15,
+                        "imagen": "https://www.lafazenda.com.ar/wp-content/uploads/2025/01/Blend-original-2.webp"
+                },
+                {
+                        "id": 2,
+                        "nombre": "Colombia",
+                        "precio": 6500,
+                        "tipo": "Cafe en granos",
+                        "descripcion": "Café de alta calidad, con notas afrutadas.",
+                        "stock": 10,
+                        "imagen": "https://www.lafazenda.com.ar/wp-content/uploads/2025/01/COLOMBIA-1.webp"
+                },
+                {
+                        "id": 3,
+                        "nombre": "Capsulas",
+                        "precio": 9500,
+                        "tipo": "Capsulas",
+                        "descripcion": "Surtido de 25 Cápsulas compatibles con Nespresso.",
+                        "stock": 20,
+                        "imagen": "https://www.lafazenda.com.ar/wp-content/uploads/2025/01/Capsulas-Surtidas-x-50-300x300.webp"
+                }
+
+]

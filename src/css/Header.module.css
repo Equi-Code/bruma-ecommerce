@@ -1,0 +1,215 @@
+.header {
+  width: 100%;
+
+  background-color: var(--bg);
+  color: var(--text);
+
+  border-bottom: 1px solid var(--border);
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 1200px;
+
+  min-height: 90px;
+
+  margin: 0 auto;
+  padding: 0 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* =========================
+   LOGO
+   ========================= */
+
+.title {
+  margin: 0;
+
+  color: var(--text-h);
+
+  font-family: var(--heading);
+  font-size: 2rem;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+}
+
+
+/* =========================
+   NAV
+   ========================= */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navLink {
+  position: relative;
+
+  text-decoration: none;
+
+  color: var(--text);
+
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--accent);
+}
+
+.navLink::after {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 1px;
+
+  background-color: var(--accent);
+
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+
+/* =========================
+   CARRITO
+   ========================= */
+
+.cart {
+  text-decoration: none;
+
+  font-size: 1.2rem;
+
+  transition: transform 0.3s ease;
+}
+
+.cart:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   HAMBURGER
+   ========================= */
+
+.menuButton {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  padding: 8px;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.menuButton span {
+  display: block;
+
+  width: 24px;
+  height: 1px;
+
+  background-color: var(--text-h);
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+  .contenedor {
+    min-height: 75px;
+
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  .nav {
+    position: absolute;
+
+    top: 75px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 30px 20px;
+
+    background-color: var(--bg);
+
+    border-bottom: 1px solid var(--border);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-10px);
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease,
+      visibility 0.3s ease;
+
+    z-index: 100;
+  }
+
+  .navOpen {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+  }
+
+  .navLink {
+    font-size: 0.8rem;
+  }
+
+  .cart {
+    font-size: 1.3rem;
+  }
+}

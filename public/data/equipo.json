@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "nombre":"Thomas Herrera",
+        "email":"thomasherrera@bruma.com.ar",
+        "puesto":"Tostador & Especialista ",
+        "imagen":"src/assets/img/bruma-thomas.webp"
+    },
+    {
+        "id": 2,
+        "nombre":"Julia Pontoroso",
+        "email":"juliapontoroso@bruma.com.ar",
+        "puesto":"Barista & Cofee Specialist",
+        "imagen":"src/assets/img/bruma-julia.webp"
+    },
+    {
+        "id": 3,
+        "nombre":"Lucia Garcia",
+        "email":"luciagarcia@bruma.com.ar",
+        "puesto":"Branding & Experiencia",
+        "imagen":"src/assets/img/bruma-lucia.webp"
+    }
+]

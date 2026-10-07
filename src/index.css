@@ -1,0 +1,413 @@
+:root {
+  /* =========================
+     BRUMA — Café de especialidad
+     ========================= */
+
+  /* Color */
+  --text: #5C554D;
+  --text-h: #171614;
+  --bg: #F3EFE7;
+  --border: #D9D3C9;
+  --code-bg: #E8E1D6;
+
+  --accent: #8A6A4A;
+  --accent-hover: #6F533A;
+  --accent-bg: rgba(138, 106, 74, 0.1);
+  --accent-border: rgba(138, 106, 74, 0.5);
+  --on-accent: #FFFFFF; /* texto sobre el color de acento */
+
+  --highlight: #B8860B; /* ámbar: etiquetas, "nuevo", origen */
+  --social-bg: rgba(217, 211, 201, 0.5);
+
+  --hero-overlay-top: rgba(243, 239, 231, 0.55);
+  --hero-overlay-bottom: rgba(243, 239, 231, 0.88);
+
+  --shadow:
+    rgba(23, 22, 20, 0.1) 0 10px 15px -3px,
+    rgba(23, 22, 20, 0.05) 0 4px 6px -2px;
+
+  /* Tipografías */
+  --sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Cormorant Garamond', Georgia, serif;
+  --mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  /* Espaciado */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 80px;
+
+  /* Radios */
+  --radius-sm: 4px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Layout y movimiento */
+  --container: 1200px;
+  --ease: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Base: el tamaño en % respeta la preferencia de zoom del usuario */
+  font-family: var(--sans);
+  font-size: 112.5%; /* 18px */
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+
+  color: var(--text);
+  background: var(--bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================
+   Dark Mode
+   ========================= */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #D9D3C9;
+    --text-h: #F3EFE7;
+    --bg: #171614;
+    --border: #3A3631;
+    --code-bg: #24211D;
+
+    --accent: #C8B89A;
+    --accent-hover: #DCCFB6;
+    --accent-bg: rgba(200, 184, 154, 0.12);
+    --accent-border: rgba(200, 184, 154, 0.5);
+    --on-accent: #171614; /* oscuro sobre acento claro */
+
+    --highlight: #D9A441;
+    --social-bg: rgba(58, 54, 49, 0.5);
+
+    --hero-overlay-top: rgba(23, 22, 20, 0.6);
+    --hero-overlay-bottom: rgba(23, 22, 20, 0.88);
+
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
+      rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+}
+
+/* =========================
+   Reset
+   ========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* =========================
+   Typography
+   ========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading);
+  color: var(--text-h);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: var(--space-sm);
+
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+
+  color: var(--accent);
+}
+
+.lead {
+  max-width: 650px;
+  margin: 0 auto var(--space-lg);
+
+  font-size: 1.1rem;
+  line-height: 1.7;
+  font-style: italic;
+  text-align: center;
+
+  color: var(--text);
+}
+
+/* =========================
+   Hero
+   ========================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-width: var(--container);
+  min-height: 70vh;
+  margin: var(--space-md) auto 0;
+  padding: var(--space-xl) var(--space-md);
+
+  text-align: center;
+  background: url('/src/assets/cafeBruma.png') center / cover no-repeat;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Overlay: garantiza legibilidad sobre la foto */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    var(--hero-overlay-top),
+    var(--hero-overlay-bottom)
+  );
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  margin-bottom: var(--space-md);
+
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.01em;
+
+  color: var(--text-h);
+}
+
+.hero-description {
+  max-width: 650px;
+  margin: 0 auto var(--space-lg);
+
+  font-size: 1.1rem;
+  line-height: 1.7;
+  font-style: italic;
+
+  color: var(--text-h);
+}
+
+.hero-button {
+  display: inline-block;
+
+  padding: 14px 32px;
+
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+
+  background-color: var(--accent);
+  color: var(--on-accent);
+
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--ease),
+    color var(--ease),
+    border-color var(--ease),
+    transform var(--ease);
+}
+
+.hero-button:hover {
+  background-color: transparent;
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Sobre la foto, el hover transparente pierde contraste: usamos el acento oscuro */
+.hero .hero-button:hover {
+  background-color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* =========================
+   Productos
+   ========================= */
+
+.productos {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.productos-title {
+  margin-bottom: var(--space-sm);
+
+  text-align: center;
+
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+/* Compatibilidad: si ya usas esta clase en el HTML, hereda de .lead */
+.productos-description {
+  max-width: 650px;
+  margin: 0 auto var(--space-xl);
+
+  font-size: 1.1rem;
+  line-height: 1.7;
+  font-style: italic;
+  text-align: center;
+
+  color: var(--text);
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+.productos-grid .tarjeta {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* =========================
+   Tarjeta de producto
+   ========================= */
+
+.tarjeta {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  transition:
+    transform var(--ease),
+    box-shadow var(--ease),
+    border-color var(--ease);
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent-border);
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 1024px) {
+  :root {
+    font-size: 100%; /* 16px */
+  }
+
+  .hero {
+    min-height: auto;
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .productos {
+    padding: 60px var(--space-md);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px var(--space-sm);
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 15vw, 4.5rem);
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .productos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   Accesibilidad: menos movimiento
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .hero-button:hover,
+  .tarjeta:hover {
+    transform: none;
+  }
+}

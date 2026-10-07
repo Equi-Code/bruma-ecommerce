@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <!-- BRUMA — minimal monogram / mist icon -->
+  <g stroke="#8A6A4A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Abstract B -->
+    <path d="M78 48v160"/>
+    <path d="M78 52h48c27 0 42 13 42 32 0 17-12 28-31 32 23 3 37 16 37 36 0 23-18 36-49 36H78"/>
+    <path d="M78 116h42c18 0 29-8 29-22s-11-22-29-22H78"/>
+    <path d="M78 116h47c21 0 33 10 33 27s-12 27-33 27H78"/>
+
+    <!-- Mist -->
+    <path d="M54 228c16-8 31-8 47 0"/>
+    <path d="M105 228c16-8 31-8 47 0"/>
+    <path d="M156 228c16-8 31-8 47 0"/>
+  </g>
+</svg>
