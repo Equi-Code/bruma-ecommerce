@@ -35,11 +35,11 @@ export default function Header() {
                     className={`${Styles.nav} ${menuOpen ? Styles.navOpen : ''
                         }`}
                 >
-                    <a href="#" className={Styles.navLink}>Home</a>
-                    <a href="#" className={Styles.navLink}>About</a>
+                    <a href="#" className={Styles.navLink}>Inicio</a>
+                    <a href="#" className={Styles.navLink}>Nosotros</a>
                     <a href="#" className={Styles.navLink}>Café</a>
-                    <a href="#" className={Styles.navLink}>Contact</a>
-                    <a href="#" className={Styles.navLink}>Login</a>
+                    <a href="#" className={Styles.navLink}>Contacto</a>
+                    <a href="#" className={Styles.navLink}>Ingresar</a>
 
                     <a href="#" className={Styles.cart}>
                         🛒
