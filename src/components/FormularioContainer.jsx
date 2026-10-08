@@ -3,7 +3,7 @@ import FormularioProducto from './FormularioProducto';
 
 export function FormularioContainer() {
     const [datosForm, setDatosForm] = useState({
-        Id: '',
+        id: '',
         nombre: '',
         precio: '',
         stock: '',
@@ -35,7 +35,7 @@ export function FormularioContainer() {
             return;
         }
 
-        const apiKey = '';
+        const apiKey = '3485d6dde74776b90f3c4a9c75df715b';
 
         const formData = new FormData();
         formData.append('image', imagenFile);

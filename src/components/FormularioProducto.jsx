@@ -1,11 +1,27 @@
 import Styles from '../css/Formulario.module.css'
 
-export default function FormularioProducto({ datosForm, manejarCambio, manejarEnvio }) {
+export default function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen }) {
 
     return (
         <form className={Styles.form} onSubmit={manejarEnvio}>
 
             <h2 className={Styles.tituloForm}>Agregar nuevo producto</h2>
+
+
+                <div className={Styles.campo}>
+                <label className={Styles.label} htmlFor="id">Id</label>
+                <input
+                    className={Styles.input}
+                    id="id"
+                    name="id"
+                    type="number"
+                    placeholder="Ej: 4"
+                    value={datosForm.id}
+                    onChange={manejarCambio}
+                    autoComplete="off"
+                    required
+                />
+            </div>
 
             <div className={Styles.campo}>
                 <label className={Styles.label} htmlFor="nombre">Nombre del producto</label>
@@ -92,7 +108,7 @@ export default function FormularioProducto({ datosForm, manejarCambio, manejarEn
                     name="imagen"
                     type="file"
                     accept="image/*"
-                    onChange={manejarCambio}
+                    onChange={manejarCambioImagen}
                 />
                 <p className={Styles.ayuda}>PNG, JPG o WebP. Mejor si es vertical (4:5).</p>
             </div>
