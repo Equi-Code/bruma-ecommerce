@@ -1,215 +1,335 @@
-.header {
-  width: 100%;
-
-  background-color: var(--bg);
-  color: var(--text);
-
-  border-bottom: 1px solid var(--border);
-}
-
-.contenedor {
-  width: 100%;
-  max-width: 1200px;
-
-  min-height: 90px;
-
-  margin: 0 auto;
-  padding: 0 30px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 /* =========================
-   LOGO
+   Header — BRUMA (CSS Module)
+   Se adapta al tema (claro/oscuro) con los tokens de index.css.
+   En el Home es transparente sobre el hero; en el resto, sólido.
    ========================= */
 
-.title {
-  margin: 0;
+.header {
+  /* Colores derivados del tema */
+  --hdr-fg: var(--text-h);
+  --hdr-muted: color-mix(in srgb, var(--text-h) 68%, transparent);
+  --hdr-line: var(--border);
+  --hdr-accent: var(--accent-hover);
+  --hdr-solid: color-mix(in srgb, var(--bg) 90%, transparent);
 
-  color: var(--text-h);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 
-  font-family: var(--heading);
-  font-size: 2rem;
-  font-weight: 600;
+  width: 100%;
 
-  letter-spacing: 0.18em;
+  background-color: var(--hdr-solid);
+  color: var(--hdr-fg);
+  border-bottom: 1px solid var(--hdr-line);
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  transition:
+    background-color var(--ease),
+    border-color var(--ease);
 }
 
+/* Sobre el hero (Home, sin scroll): sin fondo ni borde, se une a la foto */
+.headerTransparente {
+  background-color: transparent;
+  border-bottom-color: transparent;
+
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* Tres zonas: logo | navegación centrada | acciones */
+.contenedor {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-md);
+
+  max-width: var(--container);
+  min-height: var(--header-h);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
 
 /* =========================
-   NAV
+   Logo
+   ========================= */
+
+.logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  justify-self: start;
+
+  text-decoration: none;
+  color: var(--hdr-fg);
+}
+
+.logoTitulo {
+  font-family: var(--heading);
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  line-height: 1;
+}
+
+.logoSubtitulo {
+  color: var(--hdr-accent);
+
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--hdr-fg);
+  outline-offset: 6px;
+}
+
+/* =========================
+   Navegación
    ========================= */
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
+  justify-self: center;
 }
 
 .navLink {
   position: relative;
 
+  padding: 8px 0;
+
+  color: var(--hdr-muted);
   text-decoration: none;
 
-  color: var(--text);
-
   font-family: var(--sans);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 500;
+  letter-spacing: 0.03em;
 
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-
-  transition: color 0.3s ease;
+  transition: color var(--ease);
 }
 
-.navLink:hover {
-  color: var(--accent);
-}
-
+/* Subrayado: se dibuja en hover y queda fijo en la página activa */
 .navLink::after {
   content: '';
 
   position: absolute;
-
   left: 0;
-  bottom: -6px;
+  bottom: 0;
 
-  width: 0;
+  width: 100%;
   height: 1px;
 
-  background-color: var(--accent);
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
 
-  transition: width 0.3s ease;
+  transition: transform var(--ease);
 }
 
-.navLink:hover::after {
-  width: 100%;
+.navLink:hover,
+.navLinkActive {
+  color: var(--hdr-fg);
 }
 
+.navLink:hover::after,
+.navLinkActive::after {
+  transform: scaleX(1);
+}
+
+.navLink:focus-visible {
+  outline: 2px solid var(--hdr-fg);
+  outline-offset: 4px;
+}
 
 /* =========================
-   CARRITO
+   Acciones (usuario, carrito)
    ========================= */
 
-.cart {
+.acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+  justify-self: end;
+}
+
+.iconoBoton {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: var(--radius-sm);
+
+  color: var(--hdr-fg);
   text-decoration: none;
 
-  font-size: 1.2rem;
-
-  transition: transform 0.3s ease;
+  transition: color var(--ease);
 }
 
-.cart:hover {
-  transform: translateY(-2px);
+.iconoBoton:hover {
+  color: var(--hdr-accent);
 }
 
+.iconoBoton:focus-visible {
+  outline: 2px solid var(--hdr-fg);
+  outline-offset: 2px;
+}
+
+/* Contador del carrito: solo se muestra cuando hay productos */
+.badge {
+  position: absolute;
+  top: 2px;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+
+  border-radius: 999px;
+
+  background-color: var(--hdr-accent);
+  color: var(--on-accent);
+
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1;
+}
 
 /* =========================
-   HAMBURGER
+   Botón hamburguesa
    ========================= */
 
 .menuButton {
   display: none;
 
-  width: 42px;
-  height: 42px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 
+  width: 40px;
+  height: 40px;
   padding: 8px;
 
   border: none;
-
   background: transparent;
 
   cursor: pointer;
-
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  gap: 5px;
 }
 
 .menuButton span {
   display: block;
 
   width: 24px;
-  height: 1px;
+  height: 1.5px;
 
-  background-color: var(--text-h);
+  background-color: var(--hdr-fg);
 
   transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
+    transform var(--ease),
+    opacity var(--ease);
 }
 
+/* Se transforma en una X al abrir */
+.menuButton[aria-expanded='true'] span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.menuButton[aria-expanded='true'] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuButton[aria-expanded='true'] span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.menuButton:focus-visible {
+  outline: 2px solid var(--hdr-fg);
+  outline-offset: 2px;
+}
 
 /* =========================
-   MOBILE
+   Móvil
    ========================= */
 
-@media (max-width: 700px) {
-
+@media (max-width: 860px) {
   .contenedor {
-    min-height: 75px;
-
-    padding: 0 20px;
+    grid-template-columns: 1fr auto;
   }
 
-  .title {
-    font-size: 1.8rem;
+  .logoTitulo {
+    font-size: 1.5rem;
   }
 
   .menuButton {
     display: flex;
   }
 
+  /* Panel desplegable bajo el header (queda fuera del grid) */
   .nav {
     position: absolute;
-
-    top: 75px;
+    top: 100%;
     left: 0;
+    right: 0;
 
-    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
 
-    padding: 30px 20px;
+    padding: var(--space-xs) var(--space-md) var(--space-md);
 
     background-color: var(--bg);
-
-    border-bottom: 1px solid var(--border);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
+    border-bottom: 1px solid var(--hdr-line);
 
     opacity: 0;
     visibility: hidden;
-
-    transform: translateY(-10px);
+    transform: translateY(-8px);
 
     transition:
-      opacity 0.3s ease,
-      transform 0.3s ease,
-      visibility 0.3s ease;
-
-    z-index: 100;
+      opacity var(--ease),
+      transform var(--ease),
+      visibility var(--ease);
   }
 
   .navOpen {
     opacity: 1;
     visibility: visible;
-
     transform: translateY(0);
   }
 
   .navLink {
-    font-size: 0.8rem;
+    padding: 16px 0;
+
+    border-bottom: 1px solid var(--hdr-line);
+
+    font-size: 1rem;
   }
 
-  .cart {
-    font-size: 1.3rem;
+  /* En móvil la página activa se marca con color, no con subrayado */
+  .navLink::after {
+    display: none;
+  }
+
+  .navLinkActive {
+    color: var(--hdr-accent);
   }
 }

@@ -1,5 +1,5 @@
 import Equipo from "./Equipo";
-import Styles from '../css/Footer.module.css';
+import Styles from '../../css/Footer.module.css';
 
 
 export default function EquipoList({ equipo }) {

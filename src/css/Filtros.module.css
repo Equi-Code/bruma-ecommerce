@@ -1,0 +1,348 @@
+/* =========================
+   Filtros y catálogo — BRUMA (CSS Module)
+   Los var(--token) vienen de index.css
+   Las clases de tu archivo se mantienen; abajo se suman las nuevas.
+   ========================= */
+
+.filtrosContenedor {
+  /* El ancho y el padding los da el contenedor padre (.productos o el catálogo del Home):
+     antes había un max-width y un padding propios que duplicaban el margen lateral. */
+  width: 100%;
+  margin: 0 0 var(--space-lg);
+
+  font-family: var(--sans);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.soloLectores {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* --- Barra principal (buscador y orden alineados) --- */
+.filtrosPrincipales {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  width: 100%;
+  align-items: flex-end;
+}
+
+@media (min-width: 600px) {
+  .filtrosPrincipales {
+    /* El buscador toma el espacio restante y el orden queda a la derecha */
+    grid-template-columns: 1fr auto;
+  }
+}
+
+.inputBusqueda {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+
+  color: var(--text-h);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+
+  transition:
+    border-color var(--ease),
+    box-shadow var(--ease);
+}
+
+.inputBusqueda:hover {
+  border-color: var(--accent-border);
+}
+
+.inputBusqueda:focus {
+  /* Transparente: sigue visible en modo de alto contraste de Windows */
+  outline: 2px solid transparent;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.inputBusqueda::placeholder {
+  color: var(--text);
+  opacity: 0.6;
+}
+
+/* --- Control de ordenamiento --- */
+.controlSelect {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .filtrosPrincipales .controlSelect {
+    width: 260px;
+  }
+}
+
+.controlSelect label {
+  /* --accent-hover en vez de --accent: pasa el contraste a este tamaño */
+  color: var(--accent-hover);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* --- Selects unificados --- */
+.controlSelect select {
+  width: 100%;
+  height: 44px;
+  padding: 0 36px 0 14px;
+
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+
+  cursor: pointer;
+
+  transition:
+    border-color var(--ease),
+    color var(--ease);
+
+  appearance: none;
+
+  /* Corregido: el namespace del SVG es http://www.w3.org/2000/svg.
+     Con "http://w3.org" el navegador no dibuja la flecha. */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%235C554D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+
+  /* Evita cortes raros de texto en navegadores basados en Chromium */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+  .controlSelect select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23D9D3C9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  }
+}
+
+.controlSelect select:hover {
+  border-color: var(--accent-border);
+}
+
+.controlSelect select:focus {
+  outline: 2px solid transparent;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+/* --- Grilla de selectores --- */
+.filtrosSelectores {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-sm);
+  align-items: flex-end;
+  width: 100%;
+}
+
+/* --- Botón limpiar filtros --- */
+.btnLimpiar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 44px;
+  padding: 0 16px;
+
+  background-color: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+
+  /* --accent-hover: contraste suficiente sobre el fondo tintado */
+  color: var(--accent-hover);
+
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--ease),
+    color var(--ease),
+    border-color var(--ease);
+}
+
+.btnLimpiar:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.btnLimpiar:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* =========================
+   Nuevo: chips de tipo
+   ========================= */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.chipsCentrados {
+  justify-content: center;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 16px;
+
+  background-color: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  color: var(--text-h);
+
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--ease),
+    border-color var(--ease),
+    color var(--ease);
+}
+
+.chip:hover {
+  border-color: var(--accent);
+}
+
+.chip[aria-pressed='true'] {
+  background-color: var(--text-h);
+  border-color: var(--text-h);
+  color: var(--bg);
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.chipCantidad {
+  font-size: 0.72rem;
+  opacity: 0.6;
+}
+
+/* =========================
+   Nuevo: conteo de resultados
+   ========================= */
+
+.conteo {
+  color: var(--text);
+
+  font-size: 0.85rem;
+}
+
+/* =========================
+   Nuevo: grilla de productos
+   Las tarjetas (<Item />) miden hasta 360px: se centran en cada celda
+   ========================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 340px));
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+/* =========================
+   Nuevo: sin resultados / estados
+   ========================= */
+
+.vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+
+  padding: var(--space-xl) var(--space-md);
+
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  color: var(--text);
+  text-align: center;
+}
+
+.vacioTitulo {
+  margin-bottom: var(--space-xs);
+
+  color: var(--text-h);
+
+  font-family: var(--heading);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.estado {
+  padding: var(--space-xl) var(--space-md);
+
+  color: var(--text);
+  text-align: center;
+}
+
+/* =========================
+   Nuevo: "Ver todo" (versión compacta del Home)
+   ========================= */
+
+.verTodo {
+  margin-top: var(--space-lg);
+
+  text-align: center;
+}
+
+.enlaceVerTodo {
+  color: var(--text-h);
+
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+
+  transition: color var(--ease);
+}
+
+.enlaceVerTodo:hover,
+.enlaceVerTodo:focus-visible {
+  color: var(--accent-hover);
+}

@@ -1,0 +1,1156 @@
+/* =========================
+   Carrito — BRUMA (CSS Module)
+   Los var(--token) vienen de index.css
+   ========================= */
+
+.pagina {
+  --cta-bg: var(--text-h);
+  --cta-fg: var(--bg);
+  --chip-bg: rgba(243, 239, 231, 0.94);
+  --chip-fg: #171614;
+  --error: #8C3B2A;
+
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-md) var(--space-xl);
+}
+
+@media (prefers-color-scheme: dark) {
+  .pagina {
+    --chip-bg: rgba(23, 22, 20, 0.88);
+    --chip-fg: #F3EFE7;
+    --error: #E0907C;
+  }
+}
+
+.soloLectores {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* =========================
+   Carrito vacío
+   ========================= */
+
+.vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+
+  max-width: 520px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+
+  text-align: center;
+}
+
+.vacioIcono {
+  display: flex;
+
+  color: var(--accent-hover);
+}
+
+.vacioTitulo {
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.vacioTexto {
+  margin-bottom: var(--space-sm);
+
+  color: var(--text);
+}
+
+/* =========================
+   Encabezado
+   ========================= */
+
+.migas {
+  margin-bottom: var(--space-md);
+}
+
+.migas ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  list-style: none;
+
+  color: var(--text);
+
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.migas li + li::before {
+  content: '·';
+  margin-right: 8px;
+}
+
+.migas a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.migas a:hover,
+.migas a:focus-visible {
+  color: var(--accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.migas [aria-current='page'] {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-sm);
+
+  margin-bottom: var(--space-md);
+}
+
+.titulo {
+  margin-bottom: 6px;
+
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.subtitulo {
+  color: var(--text);
+
+  font-size: 0.95rem;
+}
+
+.chipTostaduria {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 999px;
+
+  color: var(--text-h);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.chipTostaduria::before {
+  content: '';
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+/* =========================
+   Barra de envío gratis
+   ========================= */
+
+.envio {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px var(--space-md);
+
+  margin-bottom: var(--space-lg);
+  padding: 14px 18px 17px;
+
+  overflow: hidden;
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+
+  background-color: var(--accent-bg);
+}
+
+.envioTexto {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--text-h);
+
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.envioTexto svg {
+  flex-shrink: 0;
+
+  color: var(--accent-hover);
+}
+
+.envioPorcentaje {
+  color: var(--accent-hover);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.progreso {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 3px;
+
+  background-color: var(--border);
+}
+
+.progresoRelleno {
+  height: 100%;
+
+  background-color: var(--accent);
+
+  transition: width var(--ease);
+}
+
+/* =========================
+   Layout principal
+   ========================= */
+
+.contenido {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+/* =========================
+   Tabla de productos
+   ========================= */
+
+.tablaCaja {
+  padding: 0 var(--space-md);
+
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.tabla {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.tabla thead th {
+  padding: var(--space-sm) 0 12px;
+
+  border-bottom: 1px solid var(--text-h);
+
+  color: var(--text-h);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.tabla thead th:first-child {
+  text-align: left;
+}
+
+.tabla thead th:nth-child(3) {
+  text-align: center;
+}
+
+.tabla td {
+  padding: var(--space-md) 0;
+
+  border-bottom: 1px solid var(--border);
+
+  vertical-align: middle;
+}
+
+.fila:last-child td {
+  border-bottom: none;
+}
+
+.celdaProducto {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.miniatura {
+  flex-shrink: 0;
+
+  width: 72px;
+  height: 88px;
+
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background-color: var(--code-bg);
+}
+
+.productoInfo {
+  min-width: 0;
+}
+
+.productoTipo {
+  margin-bottom: 4px;
+
+  color: var(--accent-hover);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.productoNombre {
+  margin-bottom: 4px;
+
+  font-family: var(--heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.productoNombre a {
+  color: var(--text-h);
+  text-decoration: none;
+}
+
+.productoNombre a:hover,
+.productoNombre a:focus-visible {
+  color: var(--accent-hover);
+}
+
+.productoSpec {
+  color: var(--text);
+
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.productoSpec strong {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.productoAcciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs);
+
+  margin-top: 8px;
+}
+
+.loteChip {
+  padding: 3px 8px;
+
+  border-radius: var(--radius-sm);
+  background-color: var(--code-bg);
+  color: var(--text);
+
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.botonQuitar {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 4px 2px;
+
+  border: none;
+  background: none;
+  color: var(--text);
+
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.botonQuitar:hover {
+  color: var(--error);
+}
+
+.botonQuitar:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.celdaPrecio,
+.celdaSubtotal {
+  color: var(--text-h);
+
+  font-size: 0.9rem;
+  font-variant-numeric: lining-nums;
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.celdaCantidad {
+  text-align: center;
+}
+
+.contador {
+  display: inline-flex;
+  align-items: center;
+
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.botonContador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 34px;
+
+  border: none;
+  background: transparent;
+  color: var(--text-h);
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.botonContador:hover {
+  color: var(--accent-hover);
+}
+
+.botonContador:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.botonContador:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.cantidad {
+  min-width: 28px;
+
+  color: var(--text-h);
+
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ---- Pie de la tabla ---- */
+
+.pie {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+
+  margin-top: var(--space-md);
+}
+
+.enlaceSuave {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 0;
+
+  border: none;
+  background: none;
+  color: var(--text-h);
+
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.enlaceSuave:hover,
+.enlaceSuave:focus-visible {
+  color: var(--accent-hover);
+}
+
+.enlaceSuave:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* =========================
+   Resumen de compra
+   ========================= */
+
+.resumen {
+  position: sticky;
+  top: calc(var(--header-h) + var(--space-md));
+
+  padding: 28px;
+
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.resumenTitulo {
+  margin-bottom: var(--space-sm);
+
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.filaResumen {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+
+  padding: 10px 0;
+
+  border-bottom: 1px solid var(--border);
+
+  color: var(--text);
+
+  font-size: 0.875rem;
+}
+
+.filaResumen dd {
+  color: var(--text-h);
+
+  font-variant-numeric: lining-nums;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.notaResumen {
+  display: block;
+  margin-top: 2px;
+
+  color: var(--accent-hover);
+
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sinCargo {
+  color: var(--accent-hover) !important;
+
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.filaDescuento dd,
+.filaDescuento dt {
+  color: var(--accent-hover);
+}
+
+/* ---- Cupón ---- */
+
+.cupon {
+  margin: var(--space-md) 0;
+}
+
+.cuponLabel {
+  display: block;
+  margin-bottom: 8px;
+
+  color: var(--text-h);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cuponFila {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.cuponInput {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  background-color: var(--bg);
+  color: var(--text-h);
+
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  transition:
+    border-color var(--ease),
+    box-shadow var(--ease);
+}
+
+.cuponInput::placeholder {
+  color: var(--text);
+  opacity: 0.55;
+}
+
+.cuponInput:focus {
+  outline: 2px solid transparent;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.botonAplicar {
+  padding: 0 18px;
+
+  border: 1px solid var(--cta-bg);
+  border-radius: var(--radius-sm);
+
+  background-color: var(--cta-bg);
+  color: var(--cta-fg);
+
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--ease),
+    border-color var(--ease),
+    color var(--ease);
+}
+
+.botonAplicar:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--on-accent);
+}
+
+.botonAplicar:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.cuponOk,
+.cuponError {
+  margin-top: 8px;
+
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.cuponOk {
+  color: var(--accent-hover);
+}
+
+.cuponError {
+  color: var(--error);
+}
+
+/* ---- Total ---- */
+
+.total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+
+  padding-top: var(--space-md);
+
+  border-top: 1px solid var(--text-h);
+}
+
+.totalEtiqueta {
+  color: var(--text-h);
+
+  font-family: var(--heading);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.totalMonto {
+  color: var(--text-h);
+
+  font-family: var(--heading);
+  font-size: 2.2rem;
+  font-variant-numeric: lining-nums;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.totalNota {
+  margin: 6px 0 var(--space-md);
+
+  color: var(--text);
+
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.botonPagar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 100%;
+  height: 52px;
+  padding: 0 var(--space-md);
+
+  border: 1px solid var(--cta-bg);
+  border-radius: var(--radius-sm);
+
+  background-color: var(--cta-bg);
+  color: var(--cta-fg);
+
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--ease),
+    border-color var(--ease),
+    color var(--ease);
+}
+
+.botonPagar:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--on-accent);
+}
+
+.botonPagar:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.ventajas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-top: var(--space-md);
+  padding: var(--space-sm);
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+
+  list-style: none;
+}
+
+.ventaja {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  color: var(--text);
+
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.ventaja svg {
+  flex-shrink: 0;
+
+  margin-top: 1px;
+
+  color: var(--accent-hover);
+}
+
+/* =========================
+   Completá tu ritual
+   ========================= */
+
+.complementos {
+  margin-top: var(--space-xl);
+}
+
+.complementosEncabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-md);
+
+  margin-bottom: var(--space-lg);
+}
+
+.etiquetaSeccion {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+
+  margin-bottom: var(--space-sm);
+
+  color: var(--accent-hover);
+
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.etiquetaSeccion::before {
+  content: '';
+
+  width: 32px;
+  height: 1px;
+
+  background-color: currentColor;
+  opacity: 0.6;
+}
+
+.tituloSeccion {
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.complementosTexto {
+  max-width: 36ch;
+
+  color: var(--text);
+
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.complementosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-md);
+}
+
+.complemento {
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.complementoMedia {
+  position: relative;
+
+  background-color: var(--code-bg);
+}
+
+.complementoMedia img {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+}
+
+.insignia {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  padding: 5px 10px;
+
+  border-radius: var(--radius-sm);
+
+  background-color: var(--chip-bg);
+  color: var(--chip-fg);
+
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.complementoCuerpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  padding: 20px;
+}
+
+.complementoNombre {
+  margin-bottom: 6px;
+
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.complementoDescripcion {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+
+  margin-bottom: var(--space-sm);
+
+  color: var(--text);
+
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.complementoPie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+
+  margin-top: auto;
+}
+
+.complementoPrecio {
+  color: var(--text-h);
+
+  font-size: 0.95rem;
+  font-variant-numeric: lining-nums;
+  font-weight: 600;
+}
+
+.botonAgregar {
+  padding: 9px 14px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+
+  background: transparent;
+  color: var(--text-h);
+
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--ease),
+    border-color var(--ease),
+    color var(--ease);
+}
+
+.botonAgregar:hover {
+  background-color: var(--cta-bg);
+  border-color: var(--cta-bg);
+  color: var(--cta-fg);
+}
+
+.botonAgregar:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* =========================
+   Garantías
+   ========================= */
+
+.garantias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+
+  margin-top: var(--space-xl);
+  padding: var(--space-md);
+
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  list-style: none;
+}
+
+.garantia {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.garantiaIcono {
+  display: flex;
+  flex-shrink: 0;
+
+  color: var(--accent-hover);
+}
+
+.garantiaTitulo {
+  margin-bottom: 4px;
+
+  color: var(--text-h);
+
+  font-family: var(--heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.garantiaTexto {
+  color: var(--text);
+
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 960px) {
+  .contenido {
+    grid-template-columns: 1fr;
+  }
+
+  /* En una columna el resumen ya no queda fijo */
+  .resumen {
+    position: static;
+  }
+}
+
+/* Móvil: cada fila de la tabla se convierte en una tarjeta */
+@media (max-width: 720px) {
+  .pagina {
+    padding-inline: var(--space-sm);
+  }
+
+  .tablaCaja {
+    padding: 0 var(--space-sm);
+  }
+
+  .tabla thead {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .tabla,
+  .tabla tbody {
+    display: block;
+  }
+
+  .fila {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm) var(--space-xs);
+
+    padding: var(--space-md) 0;
+
+    border-bottom: 1px solid var(--border);
+  }
+
+  .fila:last-child {
+    border-bottom: none;
+  }
+
+  .tabla td,
+  .fila:last-child td {
+    padding: 0;
+
+    border: none;
+  }
+
+  .celdaProducto {
+    flex: 1 1 100%;
+  }
+
+  .celdaPrecio,
+  .celdaCantidad,
+  .celdaSubtotal {
+    flex: 1 1 0;
+
+    text-align: left;
+  }
+
+  .celdaSubtotal {
+    text-align: right;
+  }
+
+  .tabla td[data-label]::before {
+    content: attr(data-label);
+
+    display: block;
+    margin-bottom: 4px;
+
+    color: var(--text);
+
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .resumen {
+    padding: var(--space-md) 20px;
+  }
+
+  .pie {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

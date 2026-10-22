@@ -1,4 +1,4 @@
-import Styles from '../css/Footer.module.css';
+import Styles from '../../css/Footer.module.css';
 
 export default function Equipo({ nombre, email, puesto, imagen }) {
 

@@ -7,6 +7,7 @@
   --text: #5C554D;
   --text-h: #171614;
   --bg: #F3EFE7;
+  --surface: #FBF8F3; /* superficie clara: secciones y tarjetas sobre --bg */
   --border: #D9D3C9;
   --code-bg: #E8E1D6;
 
@@ -45,6 +46,7 @@
 
   /* Layout y movimiento */
   --container: 1200px;
+  --header-h: 80px; /* alto del header: el hero se extiende por debajo */
   --ease: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Base: el tamaño en % respeta la preferencia de zoom del usuario */
@@ -71,6 +73,7 @@
     --text: #D9D3C9;
     --text-h: #F3EFE7;
     --bg: #171614;
+    --surface: #1F1C19;
     --border: #3A3631;
     --code-bg: #24211D;
 
@@ -185,69 +188,130 @@ h6 {
 
 /* =========================
    Hero
+   Se extiende por debajo del header (transparente) y se difumina hacia la página.
+   Claro: la foto se aclara con un velo crema.  Oscuro: casi sin filtro.
    ========================= */
 
 .hero {
+  /* Colores derivados del tema: funcionan igual en claro y oscuro */
+  --hero-fg: var(--text-h);
+  --hero-fg-soft: var(--text);
+  --hero-line: var(--accent);
+
   position: relative;
   isolation: isolate;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
 
-  max-width: var(--container);
-  min-height: 70vh;
-  margin: var(--space-md) auto 0;
-  padding: var(--space-xl) var(--space-md);
+  width: 100%;
+  min-height: clamp(520px, 78vh, 800px);
 
-  text-align: center;
+  /* Sube por debajo del header, que es sticky y transparente sobre el hero */
+  margin: calc(-1 * var(--header-h)) 0 0;
+
+  /* El texto se alinea con el borde izquierdo del contenedor del resto de la página */
+  padding:
+    calc(var(--space-xl) + var(--header-h))
+    max(var(--space-md), calc((100% - var(--container)) / 2 + var(--space-md)))
+    var(--space-xl);
+
+  text-align: left;
   background: url('/src/assets/cafeBruma.png') center / cover no-repeat;
-  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
-/* Overlay: garantiza legibilidad sobre la foto */
+/* Claro: velo crema a la izquierda (texto), arriba (header) y abajo (se funde con la página) */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(
-    to bottom,
-    var(--hero-overlay-top),
-    var(--hero-overlay-bottom)
-  );
+  background:
+    linear-gradient(
+      90deg,
+      rgba(243, 239, 231, 0.94) 0%,
+      rgba(243, 239, 231, 0.78) 35%,
+      rgba(243, 239, 231, 0.25) 70%,
+      rgba(243, 239, 231, 0) 100%
+    ),
+    linear-gradient(to bottom, rgba(243, 239, 231, 0.8), rgba(243, 239, 231, 0) 35%),
+    linear-gradient(to bottom, transparent 65%, var(--bg) 100%);
+}
+
+/* Oscuro: la foto se ve casi natural; solo un toque para el texto y el header */
+@media (prefers-color-scheme: dark) {
+  .hero::before {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(23, 22, 20, 0.62) 0%,
+        rgba(23, 22, 20, 0.3) 40%,
+        rgba(23, 22, 20, 0) 70%
+      ),
+      linear-gradient(to bottom, rgba(23, 22, 20, 0.55), rgba(23, 22, 20, 0) 30%),
+      linear-gradient(to bottom, transparent 70%, var(--bg) 100%);
+  }
+
+  .hero-content {
+    text-shadow: 0 1px 24px rgba(0, 0, 0, 0.45);
+  }
 }
 
 .hero-content {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 620px;
+  margin: 0;
+}
+
+.hero-eyebrow {
+  display: block;
+  margin-bottom: var(--space-md);
+
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  color: var(--accent-hover);
 }
 
 .hero-title {
+  max-width: 12em;
   margin-bottom: var(--space-md);
 
-  font-size: clamp(3rem, 7vw, 6rem);
-  font-style: italic;
-  font-weight: 300;
-  line-height: 1;
+  font-size: clamp(2.75rem, 5.5vw, 4.75rem);
+  font-weight: 400;
+  line-height: 1.05;
   letter-spacing: -0.01em;
+  text-wrap: balance;
 
-  color: var(--text-h);
+  color: var(--hero-fg);
+}
+
+/* Línea bajo el título */
+.hero-title::after {
+  content: '';
+
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin-top: var(--space-md);
+
+  background-color: var(--hero-line);
 }
 
 .hero-description {
-  max-width: 650px;
-  margin: 0 auto var(--space-lg);
+  max-width: 36ch;
+  margin: 0 0 var(--space-lg);
 
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.7;
-  font-style: italic;
 
-  color: var(--text-h);
+  color: var(--hero-fg-soft);
 }
 
+/* Botón principal (global): también se usa fuera del hero */
 .hero-button {
   display: inline-block;
 
@@ -280,10 +344,32 @@ h6 {
   transform: translateY(-2px);
 }
 
-/* Sobre la foto, el hover transparente pierde contraste: usamos el acento oscuro */
+/* Variante dentro del hero: contorno del color del texto, se rellena en hover */
+.hero .hero-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 14px 28px;
+
+  border-color: var(--hero-fg);
+  background-color: transparent;
+  color: var(--hero-fg);
+
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+
 .hero .hero-button:hover {
-  background-color: var(--bg);
-  border-color: var(--accent);
+  background-color: var(--hero-fg);
+  border-color: var(--hero-fg);
+  color: var(--bg);
+}
+
+.hero .hero-button:focus-visible {
+  outline: 2px solid var(--hero-fg);
+  outline-offset: 4px;
 }
 
 /* =========================
@@ -356,14 +442,20 @@ h6 {
    Responsive
    ========================= */
 
+@media (max-width: 860px) {
+  :root {
+    --header-h: 72px;
+  }
+}
+
 @media (max-width: 1024px) {
   :root {
     font-size: 100%; /* 16px */
   }
 
   .hero {
-    min-height: auto;
-    padding: var(--space-xl) var(--space-md);
+    min-height: clamp(460px, 64vh, 640px);
+    padding-block: calc(var(--space-xl) + var(--header-h)) var(--space-xl);
   }
 
   .productos {
@@ -373,15 +465,21 @@ h6 {
 
 @media (max-width: 600px) {
   .hero {
-    padding: 60px var(--space-sm);
+    padding-block: calc(60px + var(--header-h)) 60px;
+  }
+
+  /* En pantallas angostas el texto ocupa casi todo el ancho: velo parejo */
+  .hero::before {
+    background:
+      linear-gradient(to bottom, rgba(243, 239, 231, 0.7), rgba(243, 239, 231, 0.88)),
+      linear-gradient(to bottom, transparent 70%, var(--bg) 100%);
   }
 
   .hero-title {
-    font-size: clamp(2.8rem, 15vw, 4.5rem);
+    font-size: clamp(2.4rem, 11vw, 3.4rem);
   }
 
   .hero-description {
-    font-size: 1rem;
     margin-bottom: 30px;
   }
 
@@ -393,6 +491,14 @@ h6 {
 /* =========================
    Accesibilidad: menos movimiento
    ========================= */
+
+@media (max-width: 600px) and (prefers-color-scheme: dark) {
+  .hero::before {
+    background:
+      linear-gradient(to bottom, rgba(23, 22, 20, 0.45), rgba(23, 22, 20, 0.62)),
+      linear-gradient(to bottom, transparent 70%, var(--bg) 100%);
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -411,3 +517,4 @@ h6 {
     transform: none;
   }
 }
+

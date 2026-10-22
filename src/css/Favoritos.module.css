@@ -1,0 +1,246 @@
+
+.pagina {
+    width: min(1320px, calc(100% - 64px));
+    margin: 0 auto;
+    padding: 150px 0 100px;
+    color: var(--text-h, #171614);
+}
+
+/* Encabezado editorial */
+
+.encabezado {
+    max-width: 760px;
+    margin: 0 auto 58px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 18px;
+    color: var(--accent, #8A6A4A);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.titulo {
+    margin: 0 0 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+}
+
+.descripcion {
+    max-width: 540px;
+    margin: 0 auto;
+    color: var(--text, #5C554D);
+    font-size: 0.94rem;
+    line-height: 1.9;
+}
+
+/* Contador y acciones */
+
+.barraAcciones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border, #D9D3C9);
+}
+
+.resultados {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    margin: 0;
+    color: var(--text, #5C554D);
+    font-size: 0.8rem;
+    letter-spacing: 0.025em;
+}
+
+.numeroResultados {
+    color: var(--text-h, #171614);
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.botonBorrar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 0 9px 12px;
+    border: 0;
+    background: transparent;
+    color: var(--text, #5C554D);
+    font-family: inherit;
+    font-size: 0.75rem;
+    letter-spacing: 0.025em;
+    cursor: pointer;
+    transition: color 180ms ease;
+}
+
+.botonBorrar > span {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.botonBorrar:hover {
+    color: var(--accent, #8A6A4A);
+}
+
+.botonBorrar:focus-visible,
+.enlace:focus-visible {
+    outline: 2px solid var(--accent, #8A6A4A);
+    outline-offset: 5px;
+}
+
+/* Grilla de productos */
+
+.catalogo {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Estados de carga y error */
+
+.mensajeEstado {
+    padding: 48px 20px;
+    color: var(--text, #5C554D);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* Estado vacío */
+
+.vacio {
+    display: flex;
+    min-height: 350px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 52px 24px;
+    border: 1px solid var(--border, #D9D3C9);
+    text-align: center;
+}
+
+.corazonVacio {
+    margin-bottom: 20px;
+    color: var(--accent, #8A6A4A);
+    font-family: serif;
+    font-size: 3.3rem;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.tituloVacio {
+    margin: 0 0 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.textoVacio {
+    max-width: 440px;
+    margin: 0 0 28px;
+    color: var(--text, #5C554D);
+    font-size: 0.9rem;
+    line-height: 1.85;
+}
+
+.enlace {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 25px;
+    background: var(--text-h, #171614);
+    color: #fff;
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    transition:
+        background 180ms ease,
+        color 180ms ease;
+}
+
+.enlace:hover {
+    background: var(--accent, #8A6A4A);
+    color: #fff;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .pagina {
+        width: calc(100% - 40px);
+        padding-top: 125px;
+        padding-bottom: 72px;
+    }
+
+    .encabezado {
+        margin-bottom: 42px;
+    }
+
+    .titulo {
+        font-size: clamp(2.6rem, 8vw, 3.6rem);
+    }
+
+    .descripcion {
+        font-size: 0.88rem;
+    }
+
+    .barraAcciones {
+        margin-bottom: 24px;
+    }
+
+    .vacio {
+        min-height: 310px;
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagina {
+        width: calc(100% - 28px);
+        padding-top: 110px;
+        padding-bottom: 56px;
+    }
+
+    .encabezado {
+        margin-bottom: 34px;
+    }
+
+    .eyebrow {
+        font-size: 0.65rem;
+    }
+
+    .barraAcciones {
+        align-items: center;
+        gap: 8px;
+    }
+
+    .resultados {
+        font-size: 0.75rem;
+    }
+
+    .botonBorrar {
+        gap: 5px;
+        font-size: 0.7rem;
+    }
+
+    .vacio {
+        min-height: 290px;
+        padding: 32px 16px;
+    }
+}

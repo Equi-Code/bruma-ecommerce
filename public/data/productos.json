@@ -1,30 +1,2215 @@
 [
-                {
-                        "id": 1,
-                        "nombre": "Blend molido",
-                        "precio": 5500,
-                        "tipo": "Cafe en granos",
-                        "descripcion": "Café cremoso, de intensidad intermedia.",
-                        "stock": 15,
-                        "imagen": "https://www.lafazenda.com.ar/wp-content/uploads/2025/01/Blend-original-2.webp"
-                },
-                {
-                        "id": 2,
-                        "nombre": "Colombia",
-                        "precio": 6500,
-                        "tipo": "Cafe en granos",
-                        "descripcion": "Café de alta calidad, con notas afrutadas.",
-                        "stock": 10,
-                        "imagen": "https://www.lafazenda.com.ar/wp-content/uploads/2025/01/COLOMBIA-1.webp"
-                },
-                {
-                        "id": 3,
-                        "nombre": "Capsulas",
-                        "precio": 9500,
-                        "tipo": "Capsulas",
-                        "descripcion": "Surtido de 25 Cápsulas compatibles con Nespresso.",
-                        "stock": 20,
-                        "imagen": "https://www.lafazenda.com.ar/wp-content/uploads/2025/01/Capsulas-Surtidas-x-50-300x300.webp"
-                }
-
+  {
+    "id": 1,
+    "nombre": "Blend Bruma",
+    "tipo": "Café de especialidad",
+    "etiqueta": "Tostado en Buenos Aires",
+    "presentacion": "Bolsa 250g",
+    "precio": 5500,
+    "stock": 12,
+    "imagen": "/img/blend-bruma.webp",
+    "descripcion": "Nuestro blend insignia. Creado a partir de granos seleccionados de fincas de Brasil y Colombia, tostados en pequeños lotes para resaltar un perfil achocolatado, notas a avellanas y una acidez balanceada ideal para espresso o cafetera de filtro.",
+    "lote": "Lote N° 24 • Cosecha 2024",
+    "imagenes": [
+      "/img/blend-bruma.webp",
+      "/img/blend-bruma-2.webp",
+      "/img/blend-bruma-3.webp"
+    ],
+    "cita": {
+      "texto": "Un balance noble entre chocolate amargo, frutos secos y un toque dulce de caramelo tostado.",
+      "autor": "Thomas Herrera — Tostador principal"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · unas 18 tazas",
+        "precio": 5500
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato taller",
+        "precio": 10200
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Curaduría sensorial de microlotes de alta montaña. Cada componente del blend se calibra en nuestro tostador de tambor para equilibrar dulzura natural y cuerpo sedoso.",
+    "notas": [
+      "Chocolate amargo 70%",
+      "Avellanas tostadas",
+      "Caramelo de caña"
+    ],
+    "ficha": {
+      "origen": "Brasil y Colombia",
+      "variedad": "100% Arábica (Catuaí Rojo y Caturra)",
+      "proceso": "Lavado y natural al sol",
+      "altitud": "1.100 m – 1.650 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 2,
+      "cuerpo": 4,
+      "dulzura": 4.5
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Colombia Huila",
+    "tipo": "Origen único",
+    "etiqueta": "Grano entero",
+    "presentacion": "Bolsa 340g",
+    "precio": 6500,
+    "stock": 4,
+    "imagen": "/img/colombia.webp",
+    "descripcion": "Colombia Huila: Caramelo, manzana roja y acidez cítrica. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-02 • Edición de ejemplo",
+    "imagenes": [
+      "/img/colombia.webp",
+      "/img/colombia-2.webp",
+      "/img/colombia-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por caramelo, manzana roja y acidez cítrica, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "340 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 6500
+      },
+      {
+        "label": "680 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 12000
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Colombia Huila. La selección y el tueste buscan destacar caramelo, manzana roja y mantener una taza equilibrada.",
+    "notas": [
+      "Caramelo",
+      "Manzana roja",
+      "Naranja"
+    ],
+    "ficha": {
+      "origen": "Colombia (Huila)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1400 m – 1800 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 3.5,
+      "cuerpo": 3,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "Brasil Cerrado",
+    "tipo": "Origen único",
+    "etiqueta": "Dulce y achocolatado",
+    "presentacion": "Bolsa 250g",
+    "precio": 5900,
+    "stock": 18,
+    "imagen": "/img/brasil-cerrado.webp",
+    "descripcion": "Brasil Cerrado: Chocolate con leche, nuez y baja acidez. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-03 • Edición de ejemplo",
+    "imagenes": [
+      "/img/brasil-cerrado.webp",
+      "/img/brasil-cerrado-2.webp",
+      "/img/brasil-cerrado-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por chocolate con leche, nuez y baja acidez, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 5900
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 10900
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Brasil Cerrado. La selección y el tueste buscan destacar chocolate con leche, nuez y mantener una taza equilibrada.",
+    "notas": [
+      "Chocolate con leche",
+      "Nuez",
+      "Panela"
+    ],
+    "ficha": {
+      "origen": "Brasil (Cerrado Mineiro)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Natural al sol",
+      "altitud": "1500 m – 1900 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 2,
+      "cuerpo": 4,
+      "dulzura": 4.5
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "nombre": "Etiopía Yirgacheffe",
+    "tipo": "Origen único",
+    "etiqueta": "Perfil floral",
+    "presentacion": "Bolsa 250g",
+    "precio": 7900,
+    "stock": 7,
+    "imagen": "/img/etiopia-yirgacheffe.webp",
+    "descripcion": "Etiopía Yirgacheffe: Jazmín, bergamota y durazno. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-04 • Edición de ejemplo",
+    "imagenes": [
+      "/img/etiopia-yirgacheffe.webp",
+      "/img/etiopia-yirgacheffe-2.webp",
+      "/img/etiopia-yirgacheffe-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por jazmín, bergamota y durazno, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 7900
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 14600
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Etiopía Yirgacheffe. La selección y el tueste buscan destacar jazmín, bergamota y mantener una taza equilibrada.",
+    "notas": [
+      "Jazmín",
+      "Bergamota",
+      "Durazno"
+    ],
+    "ficha": {
+      "origen": "Etiopía (Yirgacheffe)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1600 m – 1600 m s. n. m.",
+      "tueste": "Claro"
+    },
+    "perfil": {
+      "acidez": 4.5,
+      "cuerpo": 2.5,
+      "dulzura": 3.5
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "nombre": "Guatemala Antigua",
+    "tipo": "Origen único",
+    "etiqueta": "Tueste medio",
+    "presentacion": "Bolsa 250g",
+    "precio": 7200,
+    "stock": 9,
+    "imagen": "/img/guatemala-antigua.webp",
+    "descripcion": "Guatemala Antigua: Cacao, ciruela y especias dulces. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-05 • Edición de ejemplo",
+    "imagenes": [
+      "/img/guatemala-antigua.webp",
+      "/img/guatemala-antigua-2.webp",
+      "/img/guatemala-antigua-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por cacao, ciruela y especias dulces, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 7200
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 13300
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Guatemala Antigua. La selección y el tueste buscan destacar cacao, ciruela y mantener una taza equilibrada.",
+    "notas": [
+      "Cacao",
+      "Ciruela",
+      "Canela"
+    ],
+    "ficha": {
+      "origen": "Guatemala (Antigua)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1200 m – 1700 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 3,
+      "cuerpo": 3.5,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "nombre": "Costa Rica Tarrazú",
+    "tipo": "Origen único",
+    "etiqueta": "Lavado",
+    "presentacion": "Bolsa 250g",
+    "precio": 7600,
+    "stock": 6,
+    "imagen": "/img/costa-rica-tarrazu.webp",
+    "descripcion": "Costa Rica Tarrazú: Miel, cítricos y pera. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-06 • Edición de ejemplo",
+    "imagenes": [
+      "/img/costa-rica-tarrazu.webp",
+      "/img/costa-rica-tarrazu-2.webp",
+      "/img/costa-rica-tarrazu-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por miel, cítricos y pera, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 7600
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 14100
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Costa Rica Tarrazú. La selección y el tueste buscan destacar miel, limón dulce y mantener una taza equilibrada.",
+    "notas": [
+      "Miel",
+      "Limón dulce",
+      "Pera"
+    ],
+    "ficha": {
+      "origen": "Costa Rica (Tarrazú)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Natural al sol",
+      "altitud": "1300 m – 1800 m s. n. m.",
+      "tueste": "Medio claro"
+    },
+    "perfil": {
+      "acidez": 4,
+      "cuerpo": 3,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "nombre": "Perú Cajamarca",
+    "tipo": "Origen único",
+    "etiqueta": "Orgánico de ejemplo",
+    "presentacion": "Bolsa 250g",
+    "precio": 6800,
+    "stock": 11,
+    "imagen": "/img/peru-cajamarca.webp",
+    "descripcion": "Perú Cajamarca: Chocolate, almendra y manzana. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-07 • Edición de ejemplo",
+    "imagenes": [
+      "/img/peru-cajamarca.webp",
+      "/img/peru-cajamarca-2.webp",
+      "/img/peru-cajamarca-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por chocolate, almendra y manzana, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 6800
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 12600
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Perú Cajamarca. La selección y el tueste buscan destacar chocolate, almendra y mantener una taza equilibrada.",
+    "notas": [
+      "Chocolate",
+      "Almendra",
+      "Manzana"
+    ],
+    "ficha": {
+      "origen": "Perú (Cajamarca)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1400 m – 1900 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 3,
+      "cuerpo": 3,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "nombre": "Kenya AA",
+    "tipo": "Origen único",
+    "etiqueta": "Perfil frutal",
+    "presentacion": "Bolsa 250g",
+    "precio": 8200,
+    "stock": 5,
+    "imagen": "/img/kenya-aa.webp",
+    "descripcion": "Kenya AA: Grosella, frutos rojos y pomelo. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-08 • Edición de ejemplo",
+    "imagenes": [
+      "/img/kenya-aa.webp",
+      "/img/kenya-aa-2.webp",
+      "/img/kenya-aa-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por grosella, frutos rojos y pomelo, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 8200
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 15200
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Kenya AA. La selección y el tueste buscan destacar grosella, frutos rojos y mantener una taza equilibrada.",
+    "notas": [
+      "Grosella",
+      "Frutos rojos",
+      "Pomelo"
+    ],
+    "ficha": {
+      "origen": "Kenia (región central)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1500 m – 1600 m s. n. m.",
+      "tueste": "Medio claro"
+    },
+    "perfil": {
+      "acidez": 4.5,
+      "cuerpo": 3,
+      "dulzura": 3.5
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "nombre": "Blend Amanecer",
+    "tipo": "Blend de la casa",
+    "etiqueta": "Ideal para filtro",
+    "presentacion": "Bolsa 250g",
+    "precio": 6100,
+    "stock": 15,
+    "imagen": "/img/blend-amanecer.webp",
+    "descripcion": "Blend Amanecer: Miel, cacao suave y naranja. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-09 • Edición de ejemplo",
+    "imagenes": [
+      "/img/blend-amanecer.webp",
+      "/img/blend-amanecer-2.webp",
+      "/img/blend-amanecer-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por miel, cacao suave y naranja, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 6100
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 11300
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Blend Amanecer. La selección y el tueste buscan destacar miel, cacao y mantener una taza equilibrada.",
+    "notas": [
+      "Miel",
+      "Cacao",
+      "Naranja"
+    ],
+    "ficha": {
+      "origen": "Brasil y Colombia",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Natural al sol",
+      "altitud": "1600 m – 1700 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 3,
+      "cuerpo": 3,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "nombre": "Blend Nocturno",
+    "tipo": "Blend de la casa",
+    "etiqueta": "Ideal para espresso",
+    "presentacion": "Bolsa 250g",
+    "precio": 6200,
+    "stock": 14,
+    "imagen": "/img/blend-nocturno.webp",
+    "descripcion": "Blend Nocturno: Chocolate, nuez y caramelo. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-10 • Edición de ejemplo",
+    "imagenes": [
+      "/img/blend-nocturno.webp",
+      "/img/blend-nocturno-2.webp",
+      "/img/blend-nocturno-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por chocolate, nuez y caramelo, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 6200
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 11500
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Blend Nocturno. La selección y el tueste buscan destacar chocolate, nuez y mantener una taza equilibrada.",
+    "notas": [
+      "Chocolate",
+      "Nuez",
+      "Caramelo"
+    ],
+    "ficha": {
+      "origen": "Brasil y Guatemala",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1200 m – 1800 m s. n. m.",
+      "tueste": "Medio oscuro"
+    },
+    "perfil": {
+      "acidez": 2,
+      "cuerpo": 4.5,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "nombre": "Descafeinado Colombia",
+    "tipo": "Descafeinado",
+    "etiqueta": "Sin cafeína agregada",
+    "presentacion": "Bolsa 250g",
+    "precio": 7400,
+    "stock": 8,
+    "imagen": "/img/descafeinado-colombia.webp",
+    "descripcion": "Descafeinado Colombia: Cacao, panela y frutos secos. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-11 • Edición de ejemplo",
+    "imagenes": [
+      "/img/descafeinado-colombia.webp",
+      "/img/descafeinado-colombia-2.webp",
+      "/img/descafeinado-colombia-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por cacao, panela y frutos secos, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 7400
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 13700
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Descafeinado Colombia. La selección y el tueste buscan destacar cacao, panela y mantener una taza equilibrada.",
+    "notas": [
+      "Cacao",
+      "Panela",
+      "Avellana"
+    ],
+    "ficha": {
+      "origen": "Colombia",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1300 m – 1900 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 2.5,
+      "cuerpo": 3.5,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "nombre": "Brasil Mogiana",
+    "tipo": "Origen único",
+    "etiqueta": "Dulzura natural",
+    "presentacion": "Bolsa 500g",
+    "precio": 10500,
+    "stock": 10,
+    "imagen": "/img/brasil-mogiana.webp",
+    "descripcion": "Brasil Mogiana: Chocolate, almendra y azúcar mascabo. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-12 • Edición de ejemplo",
+    "imagenes": [
+      "/img/brasil-mogiana.webp",
+      "/img/brasil-mogiana-2.webp",
+      "/img/brasil-mogiana-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por chocolate, almendra y azúcar mascabo, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "500 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 10500
+      },
+      {
+        "label": "1000 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 19400
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Brasil Mogiana. La selección y el tueste buscan destacar chocolate, almendra y mantener una taza equilibrada.",
+    "notas": [
+      "Chocolate",
+      "Almendra",
+      "Azúcar mascabo"
+    ],
+    "ficha": {
+      "origen": "Brasil (Mogiana)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Natural al sol",
+      "altitud": "1400 m – 1600 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 2,
+      "cuerpo": 4,
+      "dulzura": 4.5
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "nombre": "Colombia Nariño",
+    "tipo": "Origen único",
+    "etiqueta": "Altura y dulzura",
+    "presentacion": "Bolsa 250g",
+    "precio": 7100,
+    "stock": 7,
+    "imagen": "/img/colombia-narino.webp",
+    "descripcion": "Colombia Nariño: Mandarina, panela y cacao. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-13 • Edición de ejemplo",
+    "imagenes": [
+      "/img/colombia-narino.webp",
+      "/img/colombia-narino-2.webp",
+      "/img/colombia-narino-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por mandarina, panela y cacao, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 7100
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 13100
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Colombia Nariño. La selección y el tueste buscan destacar mandarina, panela y mantener una taza equilibrada.",
+    "notas": [
+      "Mandarina",
+      "Panela",
+      "Cacao"
+    ],
+    "ficha": {
+      "origen": "Colombia (Nariño)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1500 m – 1700 m s. n. m.",
+      "tueste": "Medio claro"
+    },
+    "perfil": {
+      "acidez": 4,
+      "cuerpo": 3,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "nombre": "México Chiapas",
+    "tipo": "Origen único",
+    "etiqueta": "Perfil equilibrado",
+    "presentacion": "Bolsa 250g",
+    "precio": 6700,
+    "stock": 13,
+    "imagen": "/img/mexico-chiapas.webp",
+    "descripcion": "México Chiapas: Avellana, chocolate y naranja. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-14 • Edición de ejemplo",
+    "imagenes": [
+      "/img/mexico-chiapas.webp",
+      "/img/mexico-chiapas-2.webp",
+      "/img/mexico-chiapas-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por avellana, chocolate y naranja, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 6700
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 12400
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de México Chiapas. La selección y el tueste buscan destacar avellana, chocolate y mantener una taza equilibrada.",
+    "notas": [
+      "Avellana",
+      "Chocolate",
+      "Naranja"
+    ],
+    "ficha": {
+      "origen": "México (Chiapas)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1600 m – 1800 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 3,
+      "cuerpo": 3.5,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "nombre": "Ruanda Gakenke",
+    "tipo": "Origen único",
+    "etiqueta": "Microlote de ejemplo",
+    "presentacion": "Bolsa 200g",
+    "precio": 8500,
+    "stock": 4,
+    "imagen": "/img/ruanda-gakenke.webp",
+    "descripcion": "Ruanda Gakenke: Té negro, ciruela y limón. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-15 • Edición de ejemplo",
+    "imagenes": [
+      "/img/ruanda-gakenke.webp",
+      "/img/ruanda-gakenke-2.webp",
+      "/img/ruanda-gakenke-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por té negro, ciruela y limón, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "200 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 8500
+      },
+      {
+        "label": "400 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 15700
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Ruanda Gakenke. La selección y el tueste buscan destacar té negro, ciruela y mantener una taza equilibrada.",
+    "notas": [
+      "Té negro",
+      "Ciruela",
+      "Limón"
+    ],
+    "ficha": {
+      "origen": "Ruanda (Gakenke)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Natural al sol",
+      "altitud": "1200 m – 1900 m s. n. m.",
+      "tueste": "Medio claro"
+    },
+    "perfil": {
+      "acidez": 4,
+      "cuerpo": 3,
+      "dulzura": 3.5
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "nombre": "Blend Espresso",
+    "tipo": "Blend de la casa",
+    "etiqueta": "Crema persistente",
+    "presentacion": "Bolsa 250g",
+    "precio": 6000,
+    "stock": 16,
+    "imagen": "/img/blend-espresso.webp",
+    "descripcion": "Blend Espresso: Chocolate amargo, nuez y caramelo. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-16 • Edición de ejemplo",
+    "imagenes": [
+      "/img/blend-espresso.webp",
+      "/img/blend-espresso-2.webp",
+      "/img/blend-espresso-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por chocolate amargo, nuez y caramelo, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 6000
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 11100
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Blend Espresso. La selección y el tueste buscan destacar chocolate amargo, nuez y mantener una taza equilibrada.",
+    "notas": [
+      "Chocolate amargo",
+      "Nuez",
+      "Caramelo"
+    ],
+    "ficha": {
+      "origen": "Brasil y Colombia",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1300 m – 1600 m s. n. m.",
+      "tueste": "Medio oscuro"
+    },
+    "perfil": {
+      "acidez": 2,
+      "cuerpo": 4.5,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "nombre": "Blend Filtro",
+    "tipo": "Blend de la casa",
+    "etiqueta": "Para V60 y Chemex",
+    "presentacion": "Bolsa 250g",
+    "precio": 6300,
+    "stock": 12,
+    "imagen": "/img/blend-filtro.webp",
+    "descripcion": "Blend Filtro: Durazno, flor blanca y miel. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-17 • Edición de ejemplo",
+    "imagenes": [
+      "/img/blend-filtro.webp",
+      "/img/blend-filtro-2.webp",
+      "/img/blend-filtro-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por durazno, flor blanca y miel, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 6300
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 11700
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Blend Filtro. La selección y el tueste buscan destacar durazno, flor blanca y mantener una taza equilibrada.",
+    "notas": [
+      "Durazno",
+      "Flor blanca",
+      "Miel"
+    ],
+    "ficha": {
+      "origen": "Colombia y Etiopía",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1400 m – 1700 m s. n. m.",
+      "tueste": "Medio claro"
+    },
+    "perfil": {
+      "acidez": 4,
+      "cuerpo": 3,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "nombre": "Café de temporada",
+    "tipo": "Edición limitada",
+    "etiqueta": "Lote rotativo",
+    "presentacion": "Bolsa 250g",
+    "precio": 7800,
+    "stock": 5,
+    "imagen": "/img/cafe-temporada.webp",
+    "descripcion": "Café de temporada: Perfil dulce y frutal, variable según lote. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-18 • Edición de ejemplo",
+    "imagenes": [
+      "/img/cafe-temporada.webp",
+      "/img/cafe-temporada-2.webp",
+      "/img/cafe-temporada-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por perfil dulce y frutal, variable según lote, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 7800
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 14400
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Café de temporada. La selección y el tueste buscan destacar fruta madura, caramelo y mantener una taza equilibrada.",
+    "notas": [
+      "Fruta madura",
+      "Caramelo",
+      "Cacao"
+    ],
+    "ficha": {
+      "origen": "Origen rotativo",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Natural al sol",
+      "altitud": "1500 m – 1800 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 3.5,
+      "cuerpo": 3,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "nombre": "Cápsulas Bruma",
+    "tipo": "Cápsulas",
+    "etiqueta": "Compatibles según sistema indicado",
+    "presentacion": "Caja x10",
+    "precio": 9500,
+    "stock": 20,
+    "imagen": "/img/capsulas-bruma.webp",
+    "descripcion": "Cápsulas Bruma: Cacao, caramelo y cuerpo intenso. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-19 • Edición de ejemplo",
+    "imagenes": [
+      "/img/capsulas-bruma.webp",
+      "/img/capsulas-bruma-2.webp",
+      "/img/capsulas-bruma-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por cacao, caramelo y cuerpo intenso, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "Caja x10",
+        "detalle": "Diez porciones individuales",
+        "precio": 9500
+      },
+      {
+        "label": "Caja x20",
+        "detalle": "Formato ahorro",
+        "precio": 17100
+      }
+    ],
+    "moliendas": [
+      "Cápsula lista para usar",
+      "Verificar compatibilidad del sistema"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Cápsulas Bruma. La selección y el tueste buscan destacar cacao, caramelo y mantener una taza equilibrada.",
+    "notas": [
+      "Cacao",
+      "Caramelo",
+      "Nuez"
+    ],
+    "ficha": {
+      "origen": "Blend de Brasil y Colombia",
+      "variedad": "100% Arábica (según el blend)",
+      "proceso": "Según el café utilizado",
+      "altitud": "Variable según origen",
+      "tueste": "Medio oscuro"
+    },
+    "perfil": {
+      "acidez": 2,
+      "cuerpo": 4,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "nombre": "Drip Bags Colombia",
+    "tipo": "Café individual",
+    "etiqueta": "Filtro individual",
+    "presentacion": "Caja x5",
+    "precio": 5200,
+    "stock": 17,
+    "imagen": "/img/drip-bags-colombia.webp",
+    "descripcion": "Drip Bags Colombia: Caramelo, manzana y cítricos. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-20 • Edición de ejemplo",
+    "imagenes": [
+      "/img/drip-bags-colombia.webp",
+      "/img/drip-bags-colombia-2.webp",
+      "/img/drip-bags-colombia-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por caramelo, manzana y cítricos, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "Caja x5",
+        "detalle": "Cinco filtros individuales",
+        "precio": 5200
+      },
+      {
+        "label": "Caja x10",
+        "detalle": "Diez filtros individuales",
+        "precio": 9400
+      }
+    ],
+    "moliendas": [
+      "Filtro individual listo para preparar"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Drip Bags Colombia. La selección y el tueste buscan destacar caramelo, manzana y mantener una taza equilibrada.",
+    "notas": [
+      "Caramelo",
+      "Manzana",
+      "Cítricos"
+    ],
+    "ficha": {
+      "origen": "Colombia (Huila)",
+      "variedad": "100% Arábica (según el blend)",
+      "proceso": "Según el café utilizado",
+      "altitud": "Variable según origen",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 3.5,
+      "cuerpo": 3,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "nombre": "Cold Brew Blend",
+    "tipo": "Blend de la casa",
+    "etiqueta": "Pensado para extracción en frío",
+    "presentacion": "Bolsa 250g",
+    "precio": 6100,
+    "stock": 10,
+    "imagen": "/img/cold-brew-blend.webp",
+    "descripcion": "Cold Brew Blend: Cacao, panela y frutos secos. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-21 • Edición de ejemplo",
+    "imagenes": [
+      "/img/cold-brew-blend.webp",
+      "/img/cold-brew-blend-2.webp",
+      "/img/cold-brew-blend-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por cacao, panela y frutos secos, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 6100
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 11300
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Cold Brew Blend. La selección y el tueste buscan destacar cacao, panela y mantener una taza equilibrada.",
+    "notas": [
+      "Cacao",
+      "Panela",
+      "Almendra"
+    ],
+    "ficha": {
+      "origen": "Brasil y Perú",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Natural al sol",
+      "altitud": "1300 m – 1700 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 2,
+      "cuerpo": 4,
+      "dulzura": 4.5
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "nombre": "Brasil Natural",
+    "tipo": "Origen único",
+    "etiqueta": "Proceso natural",
+    "presentacion": "Bolsa 250g",
+    "precio": 6400,
+    "stock": 9,
+    "imagen": "/img/brasil-natural.webp",
+    "descripcion": "Brasil Natural: Fruta amarilla, chocolate y miel. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-22 • Edición de ejemplo",
+    "imagenes": [
+      "/img/brasil-natural.webp",
+      "/img/brasil-natural-2.webp",
+      "/img/brasil-natural-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por fruta amarilla, chocolate y miel, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 6400
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 11800
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Brasil Natural. La selección y el tueste buscan destacar fruta amarilla, chocolate y mantener una taza equilibrada.",
+    "notas": [
+      "Fruta amarilla",
+      "Chocolate",
+      "Miel"
+    ],
+    "ficha": {
+      "origen": "Brasil (Minas Gerais)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1400 m – 1800 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 3,
+      "cuerpo": 4,
+      "dulzura": 4.5
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "nombre": "Colombia Honey",
+    "tipo": "Origen único",
+    "etiqueta": "Proceso honey",
+    "presentacion": "Bolsa 250g",
+    "precio": 7500,
+    "stock": 6,
+    "imagen": "/img/colombia-honey.webp",
+    "descripcion": "Colombia Honey: Miel, durazno y azúcar rubia. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-23 • Edición de ejemplo",
+    "imagenes": [
+      "/img/colombia-honey.webp",
+      "/img/colombia-honey-2.webp",
+      "/img/colombia-honey-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por miel, durazno y azúcar rubia, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 7500
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 13900
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Colombia Honey. La selección y el tueste buscan destacar miel, durazno y mantener una taza equilibrada.",
+    "notas": [
+      "Miel",
+      "Durazno",
+      "Azúcar rubia"
+    ],
+    "ficha": {
+      "origen": "Colombia",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1500 m – 1900 m s. n. m.",
+      "tueste": "Medio claro"
+    },
+    "perfil": {
+      "acidez": 3.5,
+      "cuerpo": 3,
+      "dulzura": 4.5
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "nombre": "Sumatra Mandheling",
+    "tipo": "Origen único",
+    "etiqueta": "Cuerpo intenso",
+    "presentacion": "Bolsa 250g",
+    "precio": 8000,
+    "stock": 5,
+    "imagen": "/img/sumatra-mandheling.webp",
+    "descripcion": "Sumatra Mandheling: Especias, cacao y madera dulce. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-24 • Edición de ejemplo",
+    "imagenes": [
+      "/img/sumatra-mandheling.webp",
+      "/img/sumatra-mandheling-2.webp",
+      "/img/sumatra-mandheling-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por especias, cacao y madera dulce, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 8000
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 14800
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Sumatra Mandheling. La selección y el tueste buscan destacar especias, cacao y mantener una taza equilibrada.",
+    "notas": [
+      "Especias",
+      "Cacao",
+      "Madera dulce"
+    ],
+    "ficha": {
+      "origen": "Indonesia (Sumatra)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Natural al sol",
+      "altitud": "1600 m – 1600 m s. n. m.",
+      "tueste": "Medio oscuro"
+    },
+    "perfil": {
+      "acidez": 2,
+      "cuerpo": 4.5,
+      "dulzura": 3.5
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "nombre": "Nicaragua Jinotega",
+    "tipo": "Origen único",
+    "etiqueta": "Perfil suave",
+    "presentacion": "Bolsa 250g",
+    "precio": 6900,
+    "stock": 8,
+    "imagen": "/img/nicaragua-jinotega.webp",
+    "descripcion": "Nicaragua Jinotega: Caramelo, pera y cacao. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-25 • Edición de ejemplo",
+    "imagenes": [
+      "/img/nicaragua-jinotega.webp",
+      "/img/nicaragua-jinotega-2.webp",
+      "/img/nicaragua-jinotega-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por caramelo, pera y cacao, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 6900
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 12800
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Nicaragua Jinotega. La selección y el tueste buscan destacar caramelo, pera y mantener una taza equilibrada.",
+    "notas": [
+      "Caramelo",
+      "Pera",
+      "Cacao"
+    ],
+    "ficha": {
+      "origen": "Nicaragua (Jinotega)",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1200 m – 1700 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 3,
+      "cuerpo": 3,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "nombre": "Blend Equilibrio",
+    "tipo": "Blend de la casa",
+    "etiqueta": "Para todos los días",
+    "presentacion": "Bolsa 500g",
+    "precio": 10300,
+    "stock": 14,
+    "imagen": "/img/blend-equilibrio.webp",
+    "descripcion": "Blend Equilibrio: Chocolate, avellana y azúcar rubia. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-26 • Edición de ejemplo",
+    "imagenes": [
+      "/img/blend-equilibrio.webp",
+      "/img/blend-equilibrio-2.webp",
+      "/img/blend-equilibrio-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por chocolate, avellana y azúcar rubia, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "500 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 10300
+      },
+      {
+        "label": "1000 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 19100
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Blend Equilibrio. La selección y el tueste buscan destacar chocolate, avellana y mantener una taza equilibrada.",
+    "notas": [
+      "Chocolate",
+      "Avellana",
+      "Azúcar rubia"
+    ],
+    "ficha": {
+      "origen": "Brasil, Perú y Colombia",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1300 m – 1800 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 2.5,
+      "cuerpo": 4,
+      "dulzura": 4.5
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "nombre": "Espresso Intenso",
+    "tipo": "Blend de la casa",
+    "etiqueta": "Tueste desarrollado",
+    "presentacion": "Bolsa 500g",
+    "precio": 10800,
+    "stock": 11,
+    "imagen": "/img/espresso-intenso.webp",
+    "descripcion": "Espresso Intenso: Cacao amargo, especias y cuerpo alto. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-27 • Edición de ejemplo",
+    "imagenes": [
+      "/img/espresso-intenso.webp",
+      "/img/espresso-intenso-2.webp",
+      "/img/espresso-intenso-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por cacao amargo, especias y cuerpo alto, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "500 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 10800
+      },
+      {
+        "label": "1000 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 20000
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Espresso Intenso. La selección y el tueste buscan destacar cacao amargo, especias y mantener una taza equilibrada.",
+    "notas": [
+      "Cacao amargo",
+      "Especias",
+      "Melaza"
+    ],
+    "ficha": {
+      "origen": "Brasil y Sumatra",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Natural al sol",
+      "altitud": "1400 m – 1900 m s. n. m.",
+      "tueste": "Oscuro"
+    },
+    "perfil": {
+      "acidez": 1.5,
+      "cuerpo": 5,
+      "dulzura": 3.5
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "nombre": "Pack Degustación",
+    "tipo": "Pack de café",
+    "etiqueta": "Tres perfiles para descubrir",
+    "presentacion": "Pack x3 de 100g",
+    "precio": 9900,
+    "stock": 7,
+    "imagen": "/img/pack-degustacion.webp",
+    "descripcion": "Pack Degustación: Dulce, frutal y floral. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-28 • Edición de ejemplo",
+    "imagenes": [
+      "/img/pack-degustacion.webp",
+      "/img/pack-degustacion-2.webp",
+      "/img/pack-degustacion-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por dulce, frutal y floral, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "Pack x3 de 100 g",
+        "detalle": "Tres perfiles para degustar",
+        "precio": 9900
+      },
+      {
+        "label": "Pack x3 de 200 g",
+        "detalle": "Formato para compartir",
+        "precio": 17300
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Molienda media para filtro"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Pack Degustación. La selección y el tueste buscan destacar chocolate, frutos rojos y mantener una taza equilibrada.",
+    "notas": [
+      "Chocolate",
+      "Frutos rojos",
+      "Flor blanca"
+    ],
+    "ficha": {
+      "origen": "Brasil, Colombia y Etiopía",
+      "variedad": "Variedades según cada origen",
+      "proceso": "Variable según cada café",
+      "altitud": "Variable según cada origen",
+      "tueste": "Variable"
+    },
+    "perfil": {
+      "acidez": 3.5,
+      "cuerpo": 3,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "nombre": "Café para Prensa",
+    "tipo": "Blend de la casa",
+    "etiqueta": "Molienda sugerida: prensa",
+    "presentacion": "Bolsa 250g",
+    "precio": 6000,
+    "stock": 12,
+    "imagen": "/img/cafe-prensa.webp",
+    "descripcion": "Café para Prensa: Chocolate, nuez y cuerpo sedoso. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-29 • Edición de ejemplo",
+    "imagenes": [
+      "/img/cafe-prensa.webp",
+      "/img/cafe-prensa-2.webp",
+      "/img/cafe-prensa-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por chocolate, nuez y cuerpo sedoso, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 6000
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 11100
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Café para Prensa. La selección y el tueste buscan destacar chocolate, nuez y mantener una taza equilibrada.",
+    "notas": [
+      "Chocolate",
+      "Nuez",
+      "Panela"
+    ],
+    "ficha": {
+      "origen": "Brasil y Perú",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Lavado",
+      "altitud": "1600 m – 1700 m s. n. m.",
+      "tueste": "Medio"
+    },
+    "perfil": {
+      "acidez": 2,
+      "cuerpo": 4,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "nombre": "Café para Moka",
+    "tipo": "Blend de la casa",
+    "etiqueta": "Molienda sugerida: moka",
+    "presentacion": "Bolsa 250g",
+    "precio": 6200,
+    "stock": 10,
+    "imagen": "/img/cafe-moka.webp",
+    "descripcion": "Café para Moka: Cacao, caramelo y especias suaves. Seleccionado para quienes buscan una taza expresiva y equilibrada, con un perfil pensado para disfrutar en casa.",
+    "lote": "Lote BR-30 • Edición de ejemplo",
+    "imagenes": [
+      "/img/cafe-moka.webp",
+      "/img/cafe-moka-2.webp",
+      "/img/cafe-moka-3.webp"
+    ],
+    "cita": {
+      "texto": "Una taza que destaca por cacao, caramelo y especias suaves, con una experiencia aromática propia de su perfil.",
+      "autor": "Equipo Bruma — Nota de cata"
+    },
+    "presentaciones": [
+      {
+        "label": "250 g",
+        "detalle": "Bolsa estándar · ideal para probar",
+        "precio": 6200
+      },
+      {
+        "label": "500 g",
+        "detalle": "Formato ahorro para disfrutar más",
+        "precio": 11500
+      }
+    ],
+    "moliendas": [
+      "En grano entero",
+      "Filtro / V60",
+      "Espresso / Moka",
+      "Prensa francesa"
+    ],
+    "perfilTexto": "Perfil de ejemplo de Café para Moka. La selección y el tueste buscan destacar cacao, caramelo y mantener una taza equilibrada.",
+    "notas": [
+      "Cacao",
+      "Caramelo",
+      "Canela"
+    ],
+    "ficha": {
+      "origen": "Brasil y Colombia",
+      "variedad": "100% Arábica (variedades según origen)",
+      "proceso": "Natural al sol",
+      "altitud": "1200 m – 1800 m s. n. m.",
+      "tueste": "Medio oscuro"
+    },
+    "perfil": {
+      "acidez": 2,
+      "cuerpo": 4.5,
+      "dulzura": 4
+    },
+    "metodo": [
+      {
+        "titulo": "Proporción y temperatura",
+        "texto": "Como punto de partida, probá una relación 1:15: 15 g de café por cada 225 ml de agua a 90–94 °C. Ajustá según tu método y gusto.",
+        "nota": "Guía orientativa de preparación"
+      },
+      {
+        "titulo": "Tiempo de extracción",
+        "texto": "Para filtro, comenzá con 2:30–3:30 min; para prensa francesa, alrededor de 4 minutos. El tiempo puede variar según la molienda y el equipo.",
+        "nota": "Ajustá la molienda para equilibrar la taza"
+      },
+      {
+        "titulo": "Consejo de conservación",
+        "texto": "Guardá el café en un recipiente hermético, en un lugar fresco y seco, lejos de la luz y de olores intensos. Molé justo antes de preparar.",
+        "nota": "Consejo general de conservación"
+      }
+    ]
+  }
 ]

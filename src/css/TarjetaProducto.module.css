@@ -1,63 +1,88 @@
 /* =========================
    Tarjeta de producto — BRUMA (CSS Module)
- */
+   Los var(--token) vienen de index.css
+   ========================= */
 
 .tarjeta {
-  /* Tokens locales */
+  /* --- Tokens locales (claro) --- */
+  --card-bg: #FFFFFF;
+  --card-border: rgba(217, 211, 201, 0.5);
+  --chip-bg: rgba(243, 239, 231, 0.94);
+  --chip-fg: #171614;
+
+  /* Botón "Agregar": cambia estas dos líneas por var(--accent) / var(--on-accent)
+     si prefieres el marrón de la marca en lugar del negro */
+  --cta-bg: var(--text-h);
+  --cta-fg: var(--bg);
+
+  --aviso-fg: #FFFFFF;
   --stock-low: #8A5A00;
   --stock-out: #8C3B2A;
-  --shadow-hover: rgba(23, 22, 20, 0.12) 0 15px 30px -8px;
+
+  --shadow-card:
+    rgba(23, 22, 20, 0.06) 0 1px 2px,
+    rgba(23, 22, 20, 0.06) 0 6px 16px -4px;
+  --shadow-hover: rgba(23, 22, 20, 0.14) 0 14px 28px -8px;
+
+  display: flex;
+  flex-direction: column;
 
   width: 100%;
-  max-width: 320px;
-  overflow: hidden;
+  max-width: 360px;
+  height: 100%;
+  padding: var(--space-sm);
 
-  background-color: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
 
   font-family: var(--sans);
 
   transition:
     transform var(--ease),
-    box-shadow var(--ease),
-    border-color var(--ease);
+    box-shadow var(--ease);
 }
 
 @media (prefers-color-scheme: dark) {
   .tarjeta {
+    --card-bg: #1F1C19;
+    --card-border: var(--border);
+    --chip-bg: rgba(23, 22, 20, 0.88);
+    --chip-fg: #F3EFE7;
+
+    --aviso-fg: #171614;
     --stock-low: #D9A441;
     --stock-out: #E0907C;
-    --shadow-hover: rgba(0, 0, 0, 0.5) 0 15px 30px -8px;
+
+    --shadow-card:
+      rgba(0, 0, 0, 0.3) 0 1px 2px,
+      rgba(0, 0, 0, 0.25) 0 6px 16px -4px;
+    --shadow-hover: rgba(0, 0, 0, 0.55) 0 14px 28px -8px;
   }
 }
 
 .tarjeta:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
 }
 
-/* Si algún elemento interno recibe foco con teclado, la tarjeta lo refleja */
-.tarjeta:focus-within {
-  border-color: var(--accent);
-}
-
-.tarjeta:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
 /* =========================
-   Imagen
+   Imagen y etiquetas superpuestas
    ========================= */
 
-.tarjeta .imagen {
+.media {
+  position: relative;
+
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.imagen {
   display: block;
 
   width: 100%;
-  height: 300px;
+  aspect-ratio: 1 / 1;
 
   object-fit: cover;
   background-color: var(--code-bg);
@@ -66,256 +91,80 @@
 }
 
 .tarjeta:hover .imagen {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
-/* =========================
-   Contenido
-   ========================= */
-
-.tarjeta .contenido {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  padding: var(--space-md);
-
-  text-align: left;
+.agotada .imagen {
+  filter: grayscale(0.6);
+  opacity: 0.7;
 }
 
-/* Categoría — usa el acento oscuro para pasar contraste AA a este tamaño */
-.tarjeta .tipo {
-  margin-bottom: var(--space-xs);
+/* Presentación del producto (abajo a la izquierda) */
+.etiqueta {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
 
-  color: var(--accent-hover);
+  max-width: calc(100% - 24px);
+  padding: 8px 10px;
+
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+
+  background-color: var(--chip-bg);
+  color: var(--chip-fg);
 
   font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Aviso de stock (arriba a la izquierda) */
+.aviso {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+
+  padding: 6px 10px;
+
+  border-radius: var(--radius-sm);
+  color: var(--aviso-fg);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.tarjeta .nombre {
-  margin-bottom: 10px;
-
-  color: var(--text-h);
-
-  font-family: var(--heading);
-  font-size: 1.8rem;
-  font-weight: 600;
-  line-height: 1.1;
+.avisoBajo {
+  background-color: var(--stock-low);
 }
 
-.tarjeta .precio {
-  margin-bottom: 14px;
-
-  color: var(--text-h);
-
-  font-size: 1rem;
-  font-weight: 600;
+.avisoAgotado {
+  background-color: var(--stock-out);
 }
 
-.tarjeta .descripcion {
-  margin-bottom: 22px;
-
-  color: var(--text);
-
-  font-size: 0.85rem;
-  line-height: 1.6;
-}
-
-/* =========================
-   Stock
-   Modificadores: se aplican desde el JSX según el stock
-   ========================= */
-
-.tarjeta .stock {
-  margin-bottom: 22px;
-
-  color: var(--text);
-
-  font-size: 0.85rem;
-  line-height: 1.6;
-}
-
-.tarjeta .stockBajo {
-  color: var(--stock-low);
-  font-weight: 600;
-}
-
-.tarjeta .stockAgotado {
-  color: var(--stock-out);
-  font-weight: 600;
-}
-
-/* =========================
-   Contador
-   ========================= */
-
-.tarjeta .contador {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: fit-content;
-  margin: var(--space-sm) auto;
-
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-
-  background: var(--bg);
-}
-
-.tarjeta .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 42px;
-  height: 42px;
-
-  border: none;
-  background: transparent;
-  color: var(--text-h);
-
-  font-family: var(--sans);
-  font-size: 1.2rem;
-  font-weight: 400;
-
-  cursor: pointer;
-
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
-}
-
-.tarjeta .button:hover {
-  background: var(--accent-bg);
-  color: var(--accent-hover);
-}
-
-.tarjeta .button:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
-}
-
-.tarjeta .button:disabled:hover {
-  background: transparent;
-  color: var(--text-h);
-}
-
-.tarjeta .button:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: -2px;
-}
-
-.tarjeta .cantidad {
-  min-width: 42px;
-  margin: 0;
-
-  text-align: center;
-
-  color: var(--text-h);
-  font-family: var(--sans);
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-/* =========================
-   Botones
-   ========================= */
-
-.tarjeta .boton,
-.tarjeta .botonCarrito {
-  width: 100%;
-  padding: 12px 20px;
-
-  border-radius: var(--radius-sm);
-
-  font-family: var(--sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-
-  cursor: pointer;
-
-  transition:
-    background-color var(--ease),
-    color var(--ease),
-    border-color var(--ease);
-}
-
-/* VER PRODUCTO — acción secundaria */
-.tarjeta .boton {
-  border: 1px solid var(--border);
-  background-color: transparent;
-  color: var(--text-h);
-}
-
-.tarjeta .boton:hover {
-  border-color: var(--accent);
-  color: var(--accent-hover);
-}
-
-/* AGREGAR AL CARRITO — acción principal */
-.tarjeta .botonCarrito {
-  margin-top: 10px;
-
-  border: 1px solid var(--accent);
-  background-color: var(--accent);
-  color: var(--on-accent);
-}
-
-.tarjeta .botonCarrito:hover {
-  background-color: transparent;
-  color: var(--accent-hover);
-}
-
-/* Producto agotado o acción no disponible */
-.tarjeta .botonCarrito:disabled,
-.tarjeta .boton:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
-.tarjeta .botonCarrito:disabled:hover {
-  background-color: var(--accent);
-  color: var(--on-accent);
-}
-
-/* =========================
-   Título + favorito
-   ========================= */
-
-.cardTittle {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-xs);
-
-  width: 100%;
-}
-
-/* Botón de favorito (antes .span) */
+/* Favorito (arriba a la derecha) */
 .favorito {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 
-  width: 44px;
-  height: 44px;
-  margin: -8px -10px 0 0;
+  width: 36px;
+  height: 36px;
 
   border: none;
   border-radius: var(--radius-sm);
-  background: transparent;
-  color: var(--accent-hover);
 
-  font-size: 1.5rem;
-  line-height: 1;
+  background-color: var(--chip-bg);
+  color: var(--chip-fg);
 
   cursor: pointer;
 
@@ -325,12 +174,272 @@
 }
 
 .favorito:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
+  color: var(--accent-hover);
+}
+
+.favorito[aria-pressed='true'] {
+  color: var(--accent-hover);
 }
 
 .favorito:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: -2px;
+  outline-offset: 2px;
+}
+
+/* =========================
+   Contenido
+   ========================= */
+
+.contenido {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  padding-top: var(--space-sm);
+}
+
+.tipo {
+  margin-bottom: 4px;
+
+  color: var(--accent-hover);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.nombre {
+  margin-bottom: 8px;
+
+  color: var(--text-h);
+
+  font-family: var(--heading);
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+/* Siempre 2 líneas: las tarjetas quedan alineadas entre sí */
+.descripcion {
+  min-height: 3em;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+
+  color: var(--text);
+
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   Precio y presentación
+   margin-top: auto → el precio queda al fondo y se alinea entre tarjetas
+   ========================= */
+
+.filaPrecio {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-xs);
+
+  margin-top: auto;
+  padding: var(--space-sm) 0 12px;
+}
+
+.precio {
+  color: var(--text-h);
+
+  font-family: var(--heading);
+  font-size: 1.65rem;
+  font-weight: 500;
+  font-variant-numeric: lining-nums;
+  line-height: 1;
+}
+
+.presentacion {
+  color: var(--text-h);
+
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* =========================
+   Cantidad
+   ========================= */
+
+.cantidadFila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+
+  padding: 6px 8px 6px 14px;
+
+  background-color: var(--bg);
+  border-radius: var(--radius-sm);
+}
+
+.cantidadLabel {
+  color: var(--text);
+
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contador {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  border: none;
+  border-radius: var(--radius-sm);
+
+  background-color: var(--card-bg);
+  color: var(--text-h);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--accent-bg);
+  color: var(--accent-hover);
+}
+
+.button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.button:disabled:hover {
+  background-color: var(--card-bg);
+  color: var(--text-h);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.cantidad {
+  min-width: 36px;
+
+  color: var(--text-h);
+
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* =========================
+   Acciones
+   ========================= */
+
+.acciones {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 12px;
+}
+
+.verDetalle {
+  padding: 8px 4px;
+
+  border: none;
+  background: none;
+  color: var(--text-h);
+
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+
+  cursor: pointer;
+
+  transition: color 0.2s ease;
+}
+
+.verDetalle:hover {
+  color: var(--accent-hover);
+}
+
+.verDetalle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.botonCarrito {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  height: 44px;
+  padding: 0 var(--space-sm);
+
+  border: 1px solid var(--cta-bg);
+  border-radius: var(--radius-sm);
+
+  background-color: var(--cta-bg);
+  color: var(--cta-fg);
+
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--ease),
+    border-color var(--ease),
+    color var(--ease);
+}
+
+.botonCarrito:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--on-accent);
+}
+
+.botonCarrito:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.botonCarrito:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.botonCarrito:disabled:hover {
+  background-color: var(--cta-bg);
+  border-color: var(--cta-bg);
+  color: var(--cta-fg);
 }
 
 /* =========================
@@ -342,15 +451,19 @@
     max-width: 100%;
   }
 
-  .tarjeta .imagen {
-    height: 280px;
+  .nombre {
+    font-size: 1.4rem;
   }
+}
 
-  .tarjeta .contenido {
-    padding: 20px;
-  }
+/* =========================
+   Menos movimiento
+   ========================= */
 
-  .tarjeta .nombre {
-    font-size: 1.6rem;
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta:hover,
+  .tarjeta:hover .imagen,
+  .favorito:hover {
+    transform: none;
   }
 }

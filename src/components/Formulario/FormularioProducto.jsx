@@ -1,4 +1,4 @@
-import Styles from '../css/Formulario.module.css'
+import Styles from '../../css/formulario.module.css';
 
 export default function FormularioProducto({ datosForm, manejarCambio, manejarEnvio, manejarCambioImagen }) {
 

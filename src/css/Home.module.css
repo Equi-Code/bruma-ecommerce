@@ -1,0 +1,937 @@
+
+
+/* =========================
+   Home — BRUMA (CSS Module)
+   Secciones: 1) Catálogo estacional  2) Nosotros  3) Contacto  4) Guía y suscripciones
+   El hero usa las clases globales de index.css
+   Los var(--token) vienen de index.css
+   ========================= */
+
+
+/* =========================
+   Beneficios (franja entre el hero y el catálogo)
+   ========================= */
+
+.beneficios {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+
+  list-style: none;
+}
+
+.beneficio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  padding: var(--space-sm) var(--space-md);
+
+  text-align: center;
+}
+
+/* Divisor vertical entre columnas */
+.beneficio + .beneficio {
+  border-left: 1px solid var(--border);
+}
+
+.beneficioIcono {
+  display: flex;
+  margin-bottom: 6px;
+
+  color: var(--text-h);
+}
+
+.beneficioTitulo {
+  color: var(--text-h);
+
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.beneficioTexto {
+  max-width: 22ch;
+
+  color: var(--text);
+
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .beneficios {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-sm);
+  }
+
+  /* Solo la columna derecha lleva divisor */
+  .beneficio + .beneficio {
+    border-left: none;
+  }
+
+  .beneficio:nth-child(even) {
+    border-left: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 480px) {
+  .beneficios {
+    grid-template-columns: 1fr;
+  }
+
+  .beneficio + .beneficio,
+  .beneficio:nth-child(even) {
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+}
+
+
+/* =========================
+   1) Catálogo estacional
+   ========================= */
+
+.catalogo {
+  padding: var(--space-xl) var(--space-md);
+
+  /* Banda de fondo: las tarjetas (var(--bg)) resaltan sobre ella */
+  background-color: var(--code-bg);
+}
+
+.contenedor {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.encabezado {
+  max-width: 650px;
+  margin: 0 auto var(--space-lg);
+
+  text-align: center;
+}
+
+.etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+
+  margin-bottom: var(--space-sm);
+
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+
+  color: var(--accent-hover);
+}
+
+/* Líneas finas a cada lado de la etiqueta */
+.etiqueta::before,
+.etiqueta::after {
+  content: '';
+
+  width: 32px;
+  height: 1px;
+
+  background-color: currentColor;
+  opacity: 0.6;
+}
+
+.tituloCatalogo {
+  margin-bottom: var(--space-sm);
+
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.descripcionCatalogo {
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.7;
+
+  color: var(--text);
+}
+
+/* Las tarjetas (<Item />) miden 320px como máximo: se centran en cada celda */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+/* Si ItemListContainer devuelve un div/section propio que envuelve las tarjetas,
+   "display: contents" lo vuelve transparente y las tarjetas pasan a ser celdas del grid */
+.grid > div,
+.grid > section {
+  display: contents;
+}
+
+
+/* =========================
+   2) Nosotros
+   Banda a todo el ancho con --surface (más clara que el fondo)
+   ========================= */
+
+.nosotros {
+  background-color: var(--surface);
+}
+
+.contenedorNosotros {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-md) 64px;
+
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+
+  color: var(--text);
+}
+
+/* Etiqueta superior: ocupa toda la fila (sin margin-bottom negativo) */
+.etiquetaNosotros {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  justify-self: start;
+
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+
+  color: var(--accent-hover);
+}
+
+.etiquetaNosotros::before {
+  content: '';
+
+  width: 32px;
+  height: 1px;
+
+  background-color: currentColor;
+  opacity: 0.6;
+}
+
+/* Imagen + tarjeta flotante */
+
+.imgNosContenedor {
+  position: relative;
+  min-width: 0;
+
+  height: clamp(420px, 52vw, 580px);
+}
+
+.historia {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-lg);
+}
+
+.contenedorCardImg {
+  position: absolute;
+  right: -24px;
+  bottom: 32px;
+
+  width: min(290px, 85%);
+  padding: 28px;
+
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+
+.contenedorCardImg p {
+  margin: 0 0 18px;
+
+  color: var(--text-h);
+  font-family: var(--heading);
+  font-size: 1.45rem;
+  font-style: italic;
+  line-height: 1.3;
+}
+
+.contenedorCardImg :is(h4, figcaption) {
+  margin: 0;
+
+  color: var(--accent-hover);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Texto */
+
+.tituloNosotros {
+  margin: 0 0 var(--space-md);
+
+  color: var(--text-h);
+  font-family: var(--heading);
+  font-size: clamp(2.6rem, 4vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.descripcionNosotros {
+  max-width: 52ch;
+  margin-bottom: 18px;
+
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* Tarjetas de valores: auto-fit → 2 columnas cuando entran, 1 cuando no */
+
+.containercard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-sm);
+
+  margin-top: var(--space-lg);
+}
+
+.cardnosotros {
+  padding: 22px 20px;
+
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  transition:
+    border-color var(--ease),
+    transform var(--ease);
+}
+
+.cardnosotros:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.cardnosotros :is(h3, h4) {
+  margin: 0 0 10px;
+
+  color: var(--text-h);
+  font-family: var(--heading);
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.cardnosotros p {
+  margin: 0;
+
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* Botón (sirve para <button> y para <Link>) */
+
+.buttonmas {
+  display: inline-block;
+
+  margin-top: var(--space-lg);
+  padding: 14px 32px;
+
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+
+  background: var(--accent);
+  color: var(--on-accent);
+
+  text-decoration: none;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--ease),
+    color var(--ease),
+    transform var(--ease);
+}
+
+.buttonmas:hover {
+  background: transparent;
+  color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.buttonmas:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+
+/* =========================
+   3) Contacto
+   Fondo de la página; las tarjetas (--surface) quedan más claras que él
+   ========================= */
+
+.contactoHome {
+  padding: var(--space-xl) var(--space-md);
+
+}
+
+.contactoContainer {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--space-xl);
+  align-items: start;
+  padding: 4rem;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+/* Columna izquierda */
+
+.contactoInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactoEtiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  align-self: flex-start;
+
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+
+  color: var(--accent-hover);
+}
+
+.contactoEtiqueta::before {
+  content: '';
+
+  width: 32px;
+  height: 1px;
+
+  background-color: currentColor;
+  opacity: 0.6;
+}
+
+.contactoTitulo {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.contactoTexto {
+  margin-bottom: var(--space-sm);
+
+  font-size: 1rem;
+  line-height: 1.7;
+
+  color: var(--text);
+}
+
+.contactoImagen {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+  background-color: var(--code-bg);
+  border-radius: var(--radius-sm);
+}
+
+.contactoCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+
+  padding: 16px 20px;
+
+  background-color: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  border-radius: var(--radius-sm);
+
+  font-style: normal; /* <address> viene en cursiva por defecto */
+}
+
+.contactoIcono {
+  display: flex;
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  color: var(--accent-hover);
+}
+
+.contactoCardTitulo {
+  margin-bottom: 2px;
+
+  color: var(--text-h);
+
+  font-family: var(--heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.contactoCardTexto {
+  color: var(--text);
+
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.contactoCardNota {
+  margin-top: 2px;
+
+  color: var(--accent-hover);
+
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.contactoCard a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contactoCard a:hover,
+.contactoCard a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Columna derecha: formulario */
+
+.contactoForm {
+  --error: #8C3B2A;
+  --cta-bg: var(--text-h);   /* cambia por var(--accent) si prefieres el marrón de la marca */
+  --cta-fg: var(--bg);       /* y por var(--on-accent) */
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 48px;
+
+  background-color: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  border-radius: var(--radius-md);
+  box-shadow:
+    rgba(23, 22, 20, 0.05) 0 1px 2px,
+    rgba(23, 22, 20, 0.05) 0 10px 28px -14px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .contactoForm {
+    --error: #E0907C;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0 10px 28px -14px;
+  }
+}
+
+.contactoFormTitulo {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.contactoFormTexto {
+  margin-top: -12px;
+  margin-bottom: var(--space-xs);
+
+  color: var(--text);
+
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.contactoCampo {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactoLabel {
+  margin-bottom: var(--space-xs);
+
+  color: var(--text-h);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contactoInput {
+  width: 100%;
+  padding: 14px 16px;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  background-color: var(--bg);
+  color: var(--text-h);
+
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.4;
+
+  transition:
+    border-color var(--ease),
+    box-shadow var(--ease);
+}
+
+.contactoInput::placeholder {
+  color: var(--text);
+  opacity: 0.55;
+}
+
+.contactoInput:hover {
+  border-color: var(--accent-border);
+}
+
+.contactoInput:focus {
+  outline: 2px solid transparent; /* visible en modo alto contraste */
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.contactoInput:user-invalid {
+  border-color: var(--error);
+}
+
+.contactoTextarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contactoButton {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 12px;
+
+  margin-top: var(--space-xs);
+  padding: 16px 32px;
+
+  border: 1px solid var(--cta-bg);
+  border-radius: var(--radius-sm);
+
+  background-color: var(--cta-bg);
+  color: var(--cta-fg);
+
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--ease),
+    border-color var(--ease),
+    color var(--ease);
+}
+
+.contactoButton:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--on-accent);
+}
+
+.contactoButton:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.contactoEnviado {
+  padding: 14px 16px;
+
+  background-color: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-sm);
+
+  color: var(--text-h);
+
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .contactoContainer {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .contactoForm {
+    padding: var(--space-lg) var(--space-md);
+  }
+}
+
+@media (max-width: 600px) {
+  .contactoHome {
+    padding: 60px var(--space-sm);
+  }
+
+  .contactoForm {
+    padding: var(--space-md) 20px;
+  }
+
+  .contactoButton {
+    align-self: stretch;
+    justify-content: center;
+  }
+}
+
+
+/* =========================
+   4) Guía de degustación y suscripciones
+   Banda de color a todo el ancho, con colores propios para cada tema:
+   Claro  → marrón de la marca, texto blanco
+   Oscuro → marrón espresso, texto crema y detalles dorados
+   ========================= */
+
+.guia {
+  /* Tema claro */
+  --guia-bg: var(--accent);
+  --guia-fg: #FFFFFF;
+  --guia-fg-soft: #FFFFFF;
+  --guia-etiqueta: #FFFFFF;
+  --guia-borde: transparent;
+  --guia-btn-bg: #FFFFFF;
+  --guia-btn-fg: #6F533A;
+  --guia-btn-borde: #FFFFFF;
+
+  /* Cancela el margin-top del footer para que la banda quede pegada a él */
+  margin: 0 0 calc(-1 * var(--space-xl));
+  padding: var(--space-xl) var(--space-md);
+
+  background-color: var(--guia-bg);
+  color: var(--guia-fg);
+  border-top: 1px solid var(--guia-borde);
+
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .guia {
+    --guia-bg: #2A2119;
+    --guia-fg: #F3EFE7;
+    --guia-fg-soft: rgba(243, 239, 231, 0.85);
+    --guia-etiqueta: #D4B27A;
+    --guia-borde: rgba(212, 178, 122, 0.25);
+    --guia-btn-bg: #D4B27A;
+    --guia-btn-fg: #171614;
+    --guia-btn-borde: #D4B27A;
+  }
+}
+
+.guiaEtiqueta {
+  display: block;
+  margin-bottom: var(--space-sm);
+
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+
+  color: var(--guia-etiqueta);
+}
+
+.guiaTitulo {
+  max-width: 720px;
+  margin: 0 auto var(--space-sm);
+
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  text-wrap: balance;
+
+  color: var(--guia-fg);
+}
+
+.guiaTexto {
+  max-width: 620px;
+  margin: 0 auto var(--space-lg);
+
+  font-size: 1.05rem;
+  line-height: 1.7;
+
+  color: var(--guia-fg-soft);
+}
+
+.guiaAcciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.botonPrincipal,
+.botonSecundario {
+  display: inline-block;
+
+  padding: 14px 32px;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  transition:
+    background-color var(--ease),
+    color var(--ease),
+    border-color var(--ease),
+    transform var(--ease);
+}
+
+/* Relleno: blanco en claro, dorado en oscuro */
+.botonPrincipal {
+  background-color: var(--guia-btn-bg);
+  border-color: var(--guia-btn-borde);
+  color: var(--guia-btn-fg);
+}
+
+.botonPrincipal:hover {
+  background-color: transparent;
+  color: var(--guia-btn-borde);
+  transform: translateY(-2px);
+}
+
+/* Solo contorno */
+.botonSecundario {
+  background-color: transparent;
+  border-color: var(--guia-fg);
+  color: var(--guia-fg);
+}
+
+.botonSecundario:hover {
+  background-color: var(--guia-fg);
+  color: var(--guia-bg);
+  transform: translateY(-2px);
+}
+
+.botonPrincipal:focus-visible,
+.botonSecundario:focus-visible {
+  outline: 2px solid var(--guia-fg);
+  outline-offset: 4px;
+}
+
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 900px) {
+  .contenedorNosotros {
+    gap: var(--space-md) 40px;
+    padding: 75px var(--space-md);
+  }
+
+  .contenedorCardImg {
+    right: -12px;
+    padding: 22px;
+  }
+}
+
+@media (max-width: 650px) {
+  .catalogo {
+    padding: 60px var(--space-sm);
+  }
+
+  .etiqueta::before,
+  .etiqueta::after {
+    width: 20px;
+  }
+
+  .contenedorNosotros {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 60px 20px;
+  }
+
+  /* Deja lugar a la tarjeta flotante que sobresale 10px */
+  .imgNosContenedor {
+    margin-right: 10px;
+  }
+
+  .contenedorCardImg {
+    right: -10px;
+    bottom: 20px;
+
+    width: 245px;
+    padding: 20px;
+  }
+
+  .contenedorCardImg p {
+    font-size: 1.25rem;
+  }
+
+  .tituloNosotros {
+    font-size: clamp(2.5rem, 10vw, 3.2rem);
+  }
+
+  .buttonmas {
+    width: 100%;
+    text-align: center;
+  }
+
+  .guia {
+    padding: 60px var(--space-md);
+  }
+
+  .botonPrincipal,
+  .botonSecundario {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+/* =========================
+   Menos movimiento
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .cardnosotros:hover,
+  .buttonmas:hover,
+  .botonPrincipal:hover,
+  .botonSecundario:hover {
+    transform: none;
+  }
+}

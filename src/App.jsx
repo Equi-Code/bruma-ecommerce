@@ -1,51 +1,80 @@
-import './index.css'
+import './index.css';
 import Layout from './components/Layout.jsx';
-// import TarjetaProducto from './components/TarjetaProducto.jsx';
-import ItemListContainer from './components/ItemListContainer.jsx';
+// import ItemListContainer from './components/Productos/ItemListContainer.jsx';
 import Contacto from './components/Contacto.jsx';
-import { FormularioContainer } from './components/FormularioContainer.jsx';
+import { FormularioContainer } from './components/Formulario/FormularioContainer.jsx';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home.jsx'
+import Nosotros from './pages/About.jsx';
+import ProductoDetalle from './components/Productos/ProductoDetalle.jsx';
+import Cart from './components/Cart/Cart.jsx'
+import Favoritos from './pages/Favoritos.jsx';
+import CatalogoFiltrable from './components/Productos/Filtros.jsx';
+import GuiaMolienda from './components/Membresia/Guiamolienda.jsx';
+import MembresiaClub from './components/Membresia/MembresiaClub.jsx';
+
+
+
 
 export default function App() {
-
   return (
-    <>
+    <Routes>
 
+      <Route element={<Layout />}>
 
-      <Layout>
-
-        <section className="hero">
-          <div className="hero-content">
-            <h1 className="hero-title">Bienvenido a Bruma</h1>
-            <p className="hero-description">Descubre nuestra selección de productos de alta calidad.</p>
-            <a href="#" className="hero-button">Explorar productos</a>
-          </div>
-        </section>
-
+      <Route path="/" element={<Home />} />
+      
+{/* <Route
+    path="/productos"
+    element={
         <section className="productos">
-          <h2 className="productos-title">Productos Seleccionados</h2>
-          <p className="productos-description">Descubre nuestra selección de productos de alta calidad.</p>
+            <ItemListContainer Mensaje="Productos Seleccionados" />
+        </section>
+    }
+/>*/}
 
-          <div className='productos-grid'>
-
-        <ItemListContainer />
-
-          </div>
-
+<Route
+    path="/productos"
+    element={
+      <>
+        <section className="productos">
+            <CatalogoFiltrable sincronizarUrl />
         </section>
 
-
-
-        <Contacto />
-
-        <FormularioContainer/>
-
-        
-
-      </Layout>
-
-
+      <GuiaMolienda />
+      <MembresiaClub />
 
     </>
-  )
-}
+    }
+/>
 
+                <Route
+          path="/nosotros"
+          element={<Nosotros />}
+        />    
+
+        <Route
+          path="/contacto"
+          element={<Contacto />}
+        />
+
+        <Route path="/favoritos" element={<Favoritos />} />
+
+        <Route
+          path="/login"
+          element={<FormularioContainer />}
+        />
+
+          <Route path = "/producto/:id" element={<ProductoDetalle />}></Route>
+
+          <Route path="/carrito" element={<Cart />} />
+
+      </Route>
+          
+
+          
+
+
+    </Routes>
+  );
+}
