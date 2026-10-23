@@ -1,23 +1,36 @@
+
 [
   {
     "id": 1,
     "nombre": "Thomas Herrera",
+    "cargo": "Tostador & Especialista",
     "email": "thomasherrera@bruma.com.ar",
-    "puesto": "Tostador & Especialista",
-    "imagen": "/img/bruma-thomas.webp"
+    "imagen": "/img/bruma-thomas.webp",
+    "descripcion": "Curador de perfiles térmicos y catador certificado de origen.",
+    "insignia": "Q-Grader certificado",
+    "bio": "Especialista en curvas térmicas y dinámica de aire caliente. Thomas analiza la humedad y densidad de cada saco entrante para proyectar el instante exacto del primer crack, maximizando la dulzura caramelizada sin eclipsar los terpenos propios de la planta.",
+    "especialidad": "Modelado termodinámico y catas SCA triangulares"
   },
   {
     "id": 2,
     "nombre": "Julia Pontoroso",
+    "cargo": "Barista & Coffee Specialist",
     "email": "juliapontoroso@bruma.com.ar",
-    "puesto": "Barista & Coffee Specialist",
-    "imagen": "/img/bruma-julia.webp"
+    "imagen": "/img/bruma-julia.webp",
+    "descripcion": "Maestría en extracción filtrada y análisis sensorial en barra.",
+    "insignia": "Head Barista",
+    "bio": "Pionera en el servicio de mesa ritual y formulación de aguas minerales a medida. Julia capacita a nuestro equipo de barra para calibrar la micrometría de molienda tres veces al día en respuesta a las fluctuaciones de presión y humedad en Buenos Aires.",
+    "especialidad": "Filtrados de alta precisión y química de minerales acuosos"
   },
   {
     "id": 3,
-    "nombre": "Lucia Garcia",
+    "nombre": "Lucía García",
+    "cargo": "Branding & Experiencia",
     "email": "luciagarcia@bruma.com.ar",
-    "puesto": "Branding & Experiencia",
-    "imagen": "/img/bruma-lucia.webp"
+    "imagen": "/img/bruma-lucia.webp",
+    "descripcion": "Dirección estética del ritual diario y vinculación con fincas.",
+    "insignia": "Relaciones de origen",
+    "bio": "Encargada de tender puentes con productores en Latinoamérica y África. Diseña el empaque biodegradable con válvula desgasificadora unidireccional y documenta la historia de cada finca para que llegue intacta al ritual del consumidor.",
+    "especialidad": "Trazabilidad comunitaria y ecología del empaque"
   }
 ]

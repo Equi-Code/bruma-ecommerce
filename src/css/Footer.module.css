@@ -90,7 +90,7 @@
 
 .footerTeam {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--space-md);
 
   max-width: 900px;
@@ -355,5 +355,77 @@
   .etiqueta::before,
   .etiqueta::after {
     width: 20px;
+  }
+}
+
+
+/* =========================
+   Equipo en móvil y tablet angosta:
+   cada persona pasa a una fila compacta (foto chica a la izquierda, texto a la derecha)
+   en lugar de tres tarjetas altas apiladas
+   ========================= */
+
+@media (max-width: 760px) {
+  .equipo {
+    margin-bottom: var(--space-lg);
+  }
+
+  .equipoTitulo {
+    margin-bottom: var(--space-md);
+  }
+
+  .footerTeam {
+    grid-template-columns: 1fr;
+    gap: 12px;
+
+    max-width: 520px;
+  }
+
+  .teamCard {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    align-content: center;
+    align-items: center;
+    column-gap: var(--space-sm);
+    row-gap: 2px;
+
+    padding: 12px 16px 12px 12px;
+
+    text-align: left;
+  }
+
+  /* Foto: ocupa las tres filas de texto */
+  .teamCard .imagen {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+
+    width: 88px;
+  }
+
+  /* Cargo, nombre y email/descripción: posiciones explícitas en la columna derecha */
+  .teamCard p:last-of-type {
+    grid-column: 2;
+    grid-row: 1;
+
+    margin: 0;
+  }
+
+  .teamCard h3 {
+    grid-column: 2;
+    grid-row: 2;
+
+    margin: 0;
+
+    font-size: 1.3rem;
+  }
+
+  .teamCard p:first-of-type {
+    grid-column: 2;
+    grid-row: 3;
+
+    margin: 0;
+
+    font-size: 0.78rem;
   }
 }

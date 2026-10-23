@@ -12,7 +12,7 @@ import Favoritos from './pages/Favoritos.jsx';
 import CatalogoFiltrable from './components/Productos/Filtros.jsx';
 import GuiaMolienda from './components/Membresia/Guiamolienda.jsx';
 import MembresiaClub from './components/Membresia/MembresiaClub.jsx';
-
+import Entrada from "./pages/Entrada.jsx"
 
 
 
@@ -20,9 +20,11 @@ export default function App() {
   return (
     <Routes>
 
+      <Route path="/" element={<Entrada />} />
+
       <Route element={<Layout />}>
 
-      <Route path="/" element={<Home />} />
+      <Route path="/inicio" element={<Home />} />
       
 {/* <Route
     path="/productos"
