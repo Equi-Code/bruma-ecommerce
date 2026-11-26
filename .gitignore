@@ -22,3 +22,16 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Credenciales privadas de Firebase
+serviceAccountKey.json
+
+# Credenciales privadas de Firebase
+serviceAccountKey.json
+
+# Dependencias y archivos generados
+node_modules/
+dist/
+.env.local
+.env
+.env.*

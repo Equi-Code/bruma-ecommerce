@@ -54,10 +54,8 @@ const getCantidadActual = (productId) => {
     // Obtener la cantidad total de unidades
     const getCartQuantity = () => {
         return cart.reduce(
-            (acc, item) => acc + item.quantity,
-            0
-        );
-    };
+            (acc, item) => acc + item.quantity,0
+    )};
 
     // Calcular el importe total
     const getCartTotal = () => {

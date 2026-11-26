@@ -62,7 +62,7 @@ export default function Item({
     presentacion,
 }) {
 
-console.log('ID recibido por Item:', id, nombre);
+    console.log('ID recibido por Item:', id, nombre);
 
     const producto = { id, nombre, precio, stock, imagen }; //creado nuevo
 
@@ -72,10 +72,10 @@ console.log('ID recibido por Item:', id, nombre);
     const favorito = esFavorito(id);
 
     console.log({
-    nombre,
-    id,
-    favorito,
-});
+        nombre,
+        id,
+        favorito,
+    });
 
     const agotado = stock === 0
     const stockBajo = stock > 0 && stock <= STOCK_BAJO
@@ -103,14 +103,25 @@ console.log('ID recibido por Item:', id, nombre);
 
     const claseTarjeta = [Styles.tarjeta, agotado && Styles.agotada].filter(Boolean).join(' ')
 
-    
+
 
     return (
         <article className={claseTarjeta}>
 
             {/* Imagen con etiquetas superpuestas */}
             <div className={Styles.media}>
-                <img className={Styles.imagen} src={imagen} alt={nombre} loading="lazy" />
+                {imagen ? (
+                    <img
+                        className={Styles.imagen}
+                        src={imagen}
+                        alt={nombre || 'Producto BRUMA'}
+                        loading="lazy"
+                    />
+                ) : (
+                    <div className={Styles.imagen}>
+                        Imagen no disponible
+                    </div>
+                )}
 
                 {/* El aviso de stock solo aparece cuando importa */}
                 {agotado && <span className={`${Styles.aviso} ${Styles.avisoAgotado}`}>Agotado</span>}
@@ -145,7 +156,9 @@ console.log('ID recibido por Item:', id, nombre);
 
                 <div className={Styles.filaPrecio}>
                     <p className={Styles.precio}>
-                        ARS ${precio.toLocaleString('es-AR', { maximumFractionDigits: 2 })}
+                        ARS ${Number(precio || 0).toLocaleString('es-AR', {
+                            maximumFractionDigits: 2
+                        })}
                     </p>
                     {presentacion && <p className={Styles.presentacion}>{presentacion}</p>}
                 </div>

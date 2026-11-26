@@ -2,7 +2,7 @@ import './index.css';
 import Layout from './components/Layout.jsx';
 // import ItemListContainer from './components/Productos/ItemListContainer.jsx';
 import Contacto from './components/Contacto.jsx';
-import { FormularioContainer } from './components/Formulario/FormularioContainer.jsx';
+// import { FormularioContainer } from './components/Formulario/FormularioContainer.jsx';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.jsx'
 import Nosotros from './pages/About.jsx';
@@ -13,6 +13,7 @@ import CatalogoFiltrable from './components/Productos/Filtros.jsx';
 import GuiaMolienda from './components/Membresia/Guiamolienda.jsx';
 import MembresiaClub from './components/Membresia/MembresiaClub.jsx';
 import Entrada from "./pages/Entrada.jsx"
+import Gestion from './pages/Gestion';
 
 
 
@@ -25,6 +26,8 @@ export default function App() {
       <Route element={<Layout />}>
 
       <Route path="/inicio" element={<Home />} />
+
+      <Route path="/gestion" element={<Gestion />} />
       
 {/* <Route
     path="/productos"
@@ -64,7 +67,7 @@ export default function App() {
 
         <Route
           path="/login"
-          element={<FormularioContainer />}
+          element={<Gestion />}
         />
 
           <Route path = "/producto/:id" element={<ProductoDetalle />}></Route>

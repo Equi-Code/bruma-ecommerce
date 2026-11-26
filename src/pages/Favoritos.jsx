@@ -119,6 +119,9 @@ import { useFavoritos } from '../utils/useFavoritos.js';
 import Styles from '../css/Favoritos.module.css';
 import ClubBruma from '../components/ClubBruma.jsx';
 
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase/config.js'; // Ajustá la ruta según tu proyecto
+
 export default function Favoritos() {
     const { favoritos, borrarFavoritos } = useFavoritos();
 
@@ -128,37 +131,44 @@ export default function Favoritos() {
     const [cargando, setCargando] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        let activo = true;
+    
+useEffect(() => {
+    let activo = true;
 
-        fetch('/data/productos.json')
-            .then((respuesta) => {
-                if (!respuesta.ok) {
-                    throw new Error('No se pudieron cargar los cafés.');
-                }
+    const cargarProductos = async () => {
+        try {
+            const referenciaProductos = collection(db, 'productos');
+            const resultado = await getDocs(referenciaProductos);
 
-                return respuesta.json();
-            })
-            .then((datos) => {
-                if (activo) {
-                    setProductos(datos);
-                }
-            })
-            .catch((error) => {
-                if (activo) {
-                    setError(error.message);
-                }
-            })
-            .finally(() => {
-                if (activo) {
-                    setCargando(false);
-                }
-            });
+            const datos = resultado.docs.map((documento) => ({
+                ...documento.data(),
+                firestoreId: documento.id,
+            }));
 
-        return () => {
-            activo = false;
-        };
-    }, []);
+            if (activo) {
+                setProductos(datos);
+                setError(null);
+            }
+        } catch (error) {
+            console.error('Error al cargar favoritos desde Firestore:', error);
+
+            if (activo) {
+                setError('No se pudieron cargar los cafés.');
+            }
+        } finally {
+            if (activo) {
+                setCargando(false);
+            }
+        }
+    };
+
+    cargarProductos();
+
+    return () => {
+        activo = false;
+    };
+}, []);
+
 
 const productosFavoritos = productos.filter((producto) =>
     favoritos.some((id) => String(id) === String(producto.id))

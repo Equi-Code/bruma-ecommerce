@@ -1,0 +1,939 @@
+
+/* =========================================
+   BRUMA - PANEL DE ADMINISTRACIÓN
+   ========================================= */
+
+.gestion {
+    --fondo: #F3EFE7;
+    --superficie: #FFFFFF;
+    --superficie-secundaria: #F1EDE5;
+    --texto: #1C1C17;
+    --texto-secundario: #494640;
+    --marron: #77583A;
+    --borde: #CBC6BD;
+    --borde-suave: #D9D3C9;
+    --error: #BA1A1A;
+
+    min-height: 100vh;
+    padding: 108px 0 70px;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: 'Inter', sans-serif;
+}
+
+.contenedor {
+    width: min(1440px, calc(100% - 60px));
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* =========================================
+   ENCABEZADO
+   ========================================= */
+
+.encabezado {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--borde-suave);
+}
+
+.migas {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: var(--texto-secundario);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+}
+
+.migas a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.migas a:hover {
+    color: var(--marron);
+}
+
+.migas > span:nth-child(even) {
+    color: #aaa49a;
+}
+
+.migas strong {
+    color: var(--texto);
+}
+
+.estadoPanel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    padding: 7px 10px;
+    background: var(--superficie-secundaria);
+    color: var(--marron);
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+}
+
+.estadoPanel i {
+    width: 6px;
+    height: 6px;
+    background: var(--marron);
+    border-radius: 50%;
+    animation: pulso 1.8s infinite;
+}
+
+@keyframes pulso {
+    50% {
+        opacity: 0.35;
+    }
+}
+
+.encabezadoPrincipal {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.introduccion {
+    max-width: 720px;
+}
+
+.sobreTitulo {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--marron);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.introduccion h1 {
+    margin: 0;
+    font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+    font-size: clamp(34px, 4vw, 46px);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.8px;
+}
+
+.introduccion p {
+    max-width: 680px;
+    margin: 9px 0 0;
+    color: var(--texto-secundario);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.accionesEncabezado {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+}
+
+.botonPrincipal,
+.botonSecundario,
+.botonEliminar {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 0 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.botonPrincipal {
+    background: #000;
+    color: #fff;
+}
+
+.botonPrincipal:hover {
+    background: var(--marron);
+}
+
+.botonPrincipal span {
+    font-size: 17px;
+}
+
+.botonSecundario {
+    background: transparent;
+    color: var(--texto);
+    border-color: var(--borde);
+}
+
+.botonSecundario:hover {
+    background: var(--superficie-secundaria);
+    border-color: var(--marron);
+}
+
+.botonPrincipal:disabled,
+.botonSecundario:disabled,
+.botonEliminar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   INDICADORES
+   ========================================= */
+
+.indicadores {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.tarjetaIndicador {
+    min-height: 112px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+}
+
+.indicadorCabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--marron);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.indicadorCabecera span:last-child {
+    color: #81796f;
+    font-size: 17px;
+}
+
+.tarjetaIndicador > strong {
+    display: block;
+    margin-top: 10px;
+    overflow-wrap: anywhere;
+    font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+    font-size: clamp(22px, 2.3vw, 28px);
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.tarjetaIndicador p {
+    margin: 5px 0 0;
+    color: var(--texto-secundario);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   PANEL DE INVENTARIO Y FILTROS
+   ========================================= */
+
+.panelInventario {
+    overflow: hidden;
+    background: var(--superficie);
+    border: 1px solid var(--borde-suave);
+    border-radius: 4px;
+}
+
+.barraFiltros {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px;
+    background: var(--superficie-secundaria);
+    border-bottom: 1px solid var(--borde);
+}
+
+.busqueda {
+    width: min(350px, 100%);
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 0 11px;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+    color: #777168;
+}
+
+.busqueda > span {
+    font-size: 21px;
+    line-height: 1;
+}
+
+.busqueda input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--texto);
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+}
+
+.busqueda input::placeholder {
+    color: #89837a;
+}
+
+.busqueda:focus-within {
+    border-color: var(--marron);
+}
+
+.filtrosCategorias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.filtro,
+.filtroActivo {
+    min-height: 32px;
+    padding: 0 11px;
+    border: 1px solid var(--borde);
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filtro {
+    background: var(--superficie);
+    color: var(--texto-secundario);
+}
+
+.filtro:hover {
+    border-color: var(--marron);
+    color: var(--marron);
+}
+
+.filtroActivo {
+    background: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+/* =========================================
+   TABLA
+   ========================================= */
+
+.cabeceraTabla,
+.filaProducto {
+    min-width: 950px;
+    display: grid;
+    grid-template-columns:
+        minmax(260px, 2.2fr)
+        minmax(105px, 0.85fr)
+        minmax(100px, 0.75fr)
+        minmax(120px, 0.9fr)
+        minmax(100px, 0.75fr)
+        minmax(95px, 0.65fr);
+    align-items: center;
+    gap: 12px;
+}
+
+.cabeceraTabla {
+    padding: 12px 14px;
+    background: var(--superficie-secundaria);
+    border-bottom: 1px solid var(--borde);
+    color: var(--texto-secundario);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.9px;
+}
+
+.filasTabla {
+    overflow-x: auto;
+}
+
+.filaProducto {
+    min-height: 76px;
+    padding: 10px 14px;
+    border-bottom: 1px solid #e4e0d9;
+    transition: background 0.2s;
+}
+
+.filaProducto:last-child {
+    border-bottom: 0;
+}
+
+.filaProducto:hover {
+    background: #faf8f4;
+}
+
+.columnaProducto {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.fotoProducto {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--superficie-secundaria);
+    border: 1px solid var(--borde);
+    border-radius: 2px;
+}
+
+.fotoProducto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fotoProducto span {
+    color: var(--marron);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.datosProducto {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.datosProducto strong {
+    overflow: hidden;
+    color: var(--texto);
+    font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.datosProducto > span {
+    overflow: hidden;
+    color: var(--texto-secundario);
+    font-size: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.datosProducto small {
+    color: var(--marron);
+    font-size: 8px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.datoSku {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.datoSku strong {
+    color: var(--texto);
+    font-family: monospace;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.datoSku span {
+    color: #81796f;
+    font-size: 10px;
+}
+
+.datoPrecio {
+    color: var(--texto);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.datoStock {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 10px;
+}
+
+.datoStock strong {
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.datoStock > span:last-child {
+    color: var(--texto-secundario);
+    font-size: 9px;
+}
+
+.puntoEstado {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.disponible.puntoEstado {
+    background: #15966c;
+}
+
+.bajo.puntoEstado {
+    background: #e58a13;
+}
+
+.agotado.puntoEstado {
+    background: #9b6545;
+}
+
+.etiquetaEstado {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 7px;
+    border: 1px solid var(--borde);
+    border-radius: 2px;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.etiquetaEstado.disponible {
+    background: #f0f3ed;
+    color: #476d50;
+}
+
+.etiquetaEstado.bajo {
+    background: #fff2df;
+    border-color: #ecd3a9;
+    color: #9b6414;
+}
+
+.etiquetaEstado.agotado {
+    background: #f2e9e4;
+    border-color: #dfc9bc;
+    color: #895b42;
+}
+
+.accionesFila {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+.accionesFila button {
+    width: 29px;
+    height: 29px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    border-radius: 3px;
+    color: var(--texto-secundario);
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.accionesFila button:hover {
+    background: var(--superficie-secundaria);
+    color: var(--marron);
+}
+
+.accionesFila button:last-child:hover {
+    background: #f9e8e5;
+    color: var(--error);
+}
+
+.alinearDerecha {
+    text-align: right;
+}
+
+.pieTabla {
+    padding: 12px 15px;
+    background: #faf8f4;
+    border-top: 1px solid var(--borde-suave);
+    color: var(--texto-secundario);
+    font-size: 10px;
+}
+
+.estadoVacio {
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 25px;
+    text-align: center;
+}
+
+.estadoVacio h2 {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.estadoVacio p {
+    margin: 0 0 8px;
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+/* =========================================
+   DRAWER LATERAL
+   ========================================= */
+
+.drawerFondo {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.drawerOverlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background: rgb(23 22 20 / 52%);
+    border: 0;
+    cursor: pointer;
+    animation: aparecer 0.2s ease;
+}
+
+.drawer {
+    position: relative;
+    z-index: 1;
+    width: min(720px, 94vw);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--fondo);
+    box-shadow: -12px 0 35px rgb(0 0 0 / 12%);
+    animation: entrarDrawer 0.25s ease;
+}
+
+.drawerCabecera {
+    min-height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 16px 25px;
+    background: var(--superficie);
+    border-bottom: 1px solid var(--borde);
+}
+
+.drawerCabecera .sobreTitulo {
+    margin-bottom: 4px;
+}
+
+.drawerCabecera h2 {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.cerrarDrawer {
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: 1px solid var(--borde);
+    border-radius: 3px;
+    color: var(--texto);
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.cerrarDrawer:hover {
+    background: var(--superficie-secundaria);
+}
+
+.drawerContenido {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+/* El formulario conserva su propio CSS.
+   Estos ajustes adaptan el contenedor al drawer. */
+
+.drawerContenido > * {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+}
+
+/* =========================================
+   MODAL DE ELIMINACIÓN
+   ========================================= */
+
+.modalFondo {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgb(23 22 20 / 52%);
+    backdrop-filter: blur(3px);
+    animation: aparecer 0.2s ease;
+}
+
+.modal {
+    width: min(430px, 100%);
+    padding: 28px;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 5px;
+    box-shadow: 0 20px 55px rgb(0 0 0 / 18%);
+}
+
+.modalIcono {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    background: #f9e8e5;
+    border-radius: 50%;
+    color: var(--error);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.modal h2 {
+    margin: 0 0 10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-weight: 500;
+}
+
+.modal p {
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.modal p strong {
+    color: var(--texto);
+}
+
+.modalAcciones {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 25px;
+    padding-top: 17px;
+    border-top: 1px solid var(--borde-suave);
+}
+
+.botonEliminar {
+    background: var(--error);
+    color: #fff;
+}
+
+.botonEliminar:hover {
+    background: #921414;
+}
+
+/* =========================================
+   ANIMACIONES
+   ========================================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes entrarDrawer {
+    from {
+        transform: translateX(35px);
+        opacity: 0.7;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1050px) {
+    .contenedor {
+        width: calc(100% - 40px);
+    }
+
+    .encabezadoPrincipal {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .accionesEncabezado {
+        width: 100%;
+    }
+
+    .barraFiltros {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .filtrosCategorias {
+        justify-content: flex-start;
+    }
+
+    .busqueda {
+        width: 100%;
+    }
+}
+
+@media (max-width: 760px) {
+    .gestion {
+        padding-top: 100px;
+    }
+
+    .contenedor {
+        width: calc(100% - 30px);
+        gap: 18px;
+    }
+
+    .migas {
+        gap: 7px;
+        font-size: 8px;
+    }
+
+    .estadoPanel {
+        margin-left: 0;
+    }
+
+    .indicadores {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .tarjetaIndicador {
+        min-height: 105px;
+        padding: 12px;
+    }
+
+    .tarjetaIndicador > strong {
+        font-size: 23px;
+    }
+
+    .accionesEncabezado {
+        flex-wrap: wrap;
+    }
+
+    .botonPrincipal,
+    .botonSecundario {
+        flex: 1;
+    }
+
+    .drawer {
+        width: 100%;
+    }
+
+    .drawerContenido {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .introduccion h1 {
+        font-size: 34px;
+    }
+
+    .introduccion p {
+        font-size: 12px;
+    }
+
+    .indicadores {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .indicadorCabecera {
+        font-size: 8px;
+    }
+
+    .tarjetaIndicador > strong {
+        font-size: 20px;
+    }
+
+    .accionesEncabezado {
+        flex-direction: column;
+    }
+
+    .accionesEncabezado button {
+        width: 100%;
+        flex: initial;
+    }
+
+    .filtrosCategorias {
+        flex-wrap: nowrap;
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+
+    .filtro,
+    .filtroActivo {
+        flex-shrink: 0;
+    }
+
+    .drawerCabecera {
+        padding: 13px 17px;
+    }
+
+    .modal {
+        padding: 22px;
+    }
+}

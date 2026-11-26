@@ -372,6 +372,47 @@ h6 {
   outline-offset: 4px;
 }
 
+/* Revelado del hero al llegar desde la Entrada: sale de la niebla (enfocado + opacidad).
+   "backwards": al terminar no deja filtros activos sobre el hero. */
+.hero-revelar {
+  animation: heroRevelar 1100ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.hero-revelar .hero-content {
+  animation: heroTexto 900ms cubic-bezier(0.22, 1, 0.36, 1) 300ms backwards;
+}
+
+@keyframes heroRevelar {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes heroTexto {
+  from {
+    opacity: 0;
+    translate: 0 16px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-revelar,
+  .hero-revelar .hero-content {
+    animation: none;
+  }
+}
+
 /* =========================
    Productos
    ========================= */
@@ -517,4 +558,3 @@ h6 {
     transform: none;
   }
 }
-

@@ -4,6 +4,9 @@ import Styles from '../../css/ProductoDetalle.module.css'
 import Item from './Item.jsx'
 import { useCart } from '../Cart/UseCart'
 
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase/config.js';
+
 
 const STOCK_BAJO = 5
 
@@ -472,28 +475,55 @@ const agregarAlCarrito = () => {
    Carga de datos (se hace una sola vez; el producto se busca por id)
    ========================= */
 
+
 function useProductos() {
-    const [estado, setEstado] = useState({ cargando: true, error: false, productos: [] })
+    const [estado, setEstado] = useState({
+        cargando: true,
+        error: false,
+        productos: [],
+    });
 
     useEffect(() => {
-        const controlador = new AbortController()
+        let activo = true;
 
-        fetch('/data/productos.json', { signal: controlador.signal })
-            .then((respuesta) => {
-                if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`)
-                return respuesta.json()
-            })
-            .then((productos) => setEstado({ cargando: false, error: false, productos }))
-            .catch((error) => {
-                if (error.name === 'AbortError') return
-                console.error('Error al cargar los productos:', error)
-                setEstado({ cargando: false, error: true, productos: [] })
-            })
+        async function cargarProductos() {
+            try {
+                const referenciaProductos = collection(db, 'productos');
+                const resultado = await getDocs(referenciaProductos);
 
-        return () => controlador.abort()
-    }, [])
+                const productos = resultado.docs.map((documento) => ({
+                    ...documento.data(),
+                    firestoreId: documento.id,
+                }));
 
-    return estado
+                if (activo) {
+                    setEstado({
+                        cargando: false,
+                        error: false,
+                        productos,
+                    });
+                }
+            } catch (error) {
+                console.error('Error al cargar productos desde Firestore:', error);
+
+                if (activo) {
+                    setEstado({
+                        cargando: false,
+                        error: true,
+                        productos: [],
+                    });
+                }
+            }
+        }
+
+        cargarProductos();
+
+        return () => {
+            activo = false;
+        };
+    }, []);
+
+    return estado;
 }
 
 export default function ProductoDetalle() {

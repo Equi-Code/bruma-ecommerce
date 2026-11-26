@@ -1,14 +1,22 @@
-import { Link, Routes } from 'react-router-dom';
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Styles from '../css/Home.module.css';
-import ProductosDestacados from '../components/Productos/ProductosDestacados.jsx';
+import CatalogoFiltrable from '../components/Productos/ProductosDestacados.jsx';
+
+const RUTAS = {
+    productos: '/productos',
+    nosotros: '/nosotros',
+    suscripcion: '/contacto', // cambiar cuando exista la página de suscripciones
+};
 
 const VALORES = [
     { titulo: 'Trazabilidad total', texto: 'Identificamos productor, altura y beneficio.' },
     { titulo: 'Tueste artesanal', texto: 'Lotes de 5 kg tostados por encargo semanal.' },
 ];
 
-function Icono({ children, size = 22 }) {
+
+/* Iconos SVG inline: sin dependencias externas */
+function Icono({ children, size = 22, grosor = 1.8 }) {
     return (
         <svg
             viewBox="0 0 24 24"
@@ -16,7 +24,7 @@ function Icono({ children, size = 22 }) {
             height={size}
             fill="none"
             stroke="currentColor"
-            strokeWidth="1.8"
+            strokeWidth={grosor}
             strokeLinecap="round"
             strokeLinejoin="round"
             aria-hidden="true"
@@ -118,10 +126,11 @@ const METODOS = [
     'Cold brew',
 ];
 
-
 export default function Home() {
-
     const [enviado, setEnviado] = useState(false);
+    // Si venimos de la Entrada, el hero se revela desde la niebla
+    const { state } = useLocation();
+    const revelar = Boolean(state?.desdeEntrada);
 
     const manejarContacto = (e) => {
         e.preventDefault();
@@ -134,11 +143,11 @@ export default function Home() {
     return (
         <>
             {/* Hero: clases globales de index.css */}
-            <section className="hero">
+            <section className={`hero${revelar ? ' hero-revelar' : ''}`}>
                 <div className="hero-content">
                     <span className="hero-eyebrow">Café de especialidad</span>
                     <h1 className="hero-title">
-                        Historias que se saborean.
+                        El ritual empieza antes del primer sorbo.
                     </h1>
 
                     <p className="hero-description">
@@ -146,14 +155,14 @@ export default function Home() {
                         pensados para disfrutar cada taza.
                     </p>
 
-                    <Link to={Routes.productos} className="hero-button">
+                    <Link to={RUTAS.productos} className="hero-button">
                         Explorar cafés
                         <IconoFlecha />
                     </Link>
                 </div>
             </section>
 
-            v            {/* Beneficios */}
+            {/* Beneficios */}
             <ul className={Styles.beneficios} aria-label="Por qué elegir BRUMA">
                 {BENEFICIOS.map(({ icono: Ico, titulo, texto }) => (
                     <li key={titulo} className={Styles.beneficio}>
@@ -164,116 +173,88 @@ export default function Home() {
                 ))}
             </ul>
 
-
-            {/* Catálogo estacional en la Home */}
+            {/* 1) Catálogo estacional */}
             <section className={Styles.catalogo} aria-labelledby="catalogo-titulo">
                 <div className={Styles.contenedor}>
 
                     <header className={Styles.encabezado}>
                         <span className={Styles.etiqueta}>Catálogo estacional</span>
-                        <h2 id="catalogo-titulo" className={Styles.titulo}>
+
+                        <h2 id="catalogo-titulo" className={Styles.tituloCatalogo}>
                             Una selección para disfrutar
                         </h2>
-                        <p className={Styles.descripcion}>
+
+                        <p className={Styles.descripcionCatalogo}>
                             Origen, aroma y equilibrio en cada taza.
                             Cafés seleccionados para descubrir nuevos sabores.
                         </p>
                     </header>
 
-                    {/* 
-          Inyectamos el nuevo componente simplificado directamente.
-          Ya no usamos ItemListContainer aquí para evitar duplicar títulos y filtros.
-        */}
-                    <ProductosDestacados />
+                    {/* Versión compacta: chips de tipo, 6 productos y enlace al catálogo completo */}
+                    <CatalogoFiltrable compacto limite={6} />
 
                 </div>
             </section>
 
-            {/* Nosotros */}
-            <section className={Styles.contenedorNosotros} aria-labelledby="nosotros-titulo">
-                <span className={Styles.etiquetaNosotros}>Nuestra historia y filosofía</span>
-                <div className={Styles.imgNosContenedor}>
-                    {/* Los archivos de /public se referencian desde la raíz: "/img/..." */}
-                    <img
-                        className={Styles.historia}
-                        src="/img/barista.jpg"
-                        alt="Barista de Bruma preparando un café en la barra"
-                        loading="lazy"
-                    />
-                    <figure className={Styles.contenedorCardImg}>
-                        <blockquote>
-                            <p>
-                                “El tiempo que dedicamos a cada extracción es el que vos te
-                                regalás en el día.”
-                            </p>
-                        </blockquote>
-                        <figcaption>Laboratorio Bruma</figcaption>
-                    </figure>
-                </div>
-                <div>
-                    <h2 id="nosotros-titulo" className={Styles.tituloNosotros}>
-                        Más que café, un momento propio
-                    </h2>
-                    <p className={Styles.descripcionNosotros}>
-                        Creemos que disfrutar un buen café empieza mucho antes del primer
-                        sorbo: en la elección del origen directo, en la curva térmica de
-                        nuestro tostador y en ese instante matutino en el que decidís
-                        hacerlo tuyo.
-                    </p>
+            {/* 2) Nosotros */}
+            <section className={Styles.nosotros} aria-labelledby="nosotros-titulo">
+                <div className={Styles.contenedorNosotros}>
+                    <span className={Styles.etiquetaNosotros}>Nuestra historia y filosofía</span>
 
-                    <p className={Styles.descripcionNosotros}>
-                        Colaboramos con pequeños productores de Colombia, Etiopía y Brasil,
-                        priorizando cosechas agroecológicas y perfiles sensoriales nítidos.
-                        Sin atajos industriales, honrando el carácter de cada suelo.
-                    </p>
-                    <div className={Styles.containercard}>
-                        {VALORES.map(({ titulo, texto }) => (
-                            <article key={titulo} className={Styles.cardnosotros}>
-                                <h3>{titulo}</h3>
-                                <p>{texto}</p>
-                            </article>
-                        ))}
-                    </div>
-                    <Link to={Routes.nosotros} className={Styles.buttonmas}>
-                        Conocé Bruma
-                    </Link>
-                </div>
-            </section>
-
-            {/*Guia */}
-
-            <section className={Styles.guia} aria-labelledby="guia-titulo">
-                <section className={Styles.guiaContenedor}>
-
-
-                    <span className={Styles.guiaEtiqueta}>
-
-                        Guía de degustación · Suscripciones
-                    </span>
-
-                    <h2 id="guia-titulo" className={Styles.guiaTitulo}>
-                        Encontrá tu próximo café favorito
-                    </h2>
-
-                    <p className={Styles.guiaTexto}>
-                        Guías de molienda según tu cafetera, notas de cata detalladas y
-                        suscripciones mensuales con envíos programados a tu medida.
-                    </p>
-
-                    <div className={Styles.guiaAcciones}>
-                        <Link to={Routes.productos} className={Styles.botonPrincipal}>
-                            Explorar todos los cafés
-                        </Link>
-                        <Link to={Routes.suscripcion} className={Styles.botonSecundario}>
-                            Armar mi suscripción
-                        </Link>
+                    <div className={Styles.imgNosContenedor}>
+                        {/* Los archivos de /public se referencian desde la raíz: "/img/..." */}
+                        <img
+                            className={Styles.historia}
+                            src="/img/barista.jpg"
+                            alt="Barista de Bruma preparando un café en la barra"
+                            loading="lazy"
+                        />
+                        <figure className={Styles.contenedorCardImg}>
+                            <blockquote>
+                                <p>
+                                    “El tiempo que dedicamos a cada extracción es el que vos te
+                                    regalás en el día.”
+                                </p>
+                            </blockquote>
+                            <figcaption>Laboratorio Bruma</figcaption>
+                        </figure>
                     </div>
 
-                </section>
+                    <div>
+                        <h2 id="nosotros-titulo" className={Styles.tituloNosotros}>
+                            Más que café, un momento propio
+                        </h2>
+
+                        <p className={Styles.descripcionNosotros}>
+                            Creemos que disfrutar un buen café empieza mucho antes del primer
+                            sorbo: en la elección del origen directo, en la curva térmica de
+                            nuestro tostador y en ese instante matutino en el que decidís
+                            hacerlo tuyo.
+                        </p>
+
+                        <p className={Styles.descripcionNosotros}>
+                            Colaboramos con pequeños productores de Colombia, Etiopía y Brasil,
+                            priorizando cosechas agroecológicas y perfiles sensoriales nítidos.
+                            Sin atajos industriales, honrando el carácter de cada suelo.
+                        </p>
+
+                        <div className={Styles.containercard}>
+                            {VALORES.map(({ titulo, texto }) => (
+                                <article key={titulo} className={Styles.cardnosotros}>
+                                    <h3>{titulo}</h3>
+                                    <p>{texto}</p>
+                                </article>
+                            ))}
+                        </div>
+
+                        <Link to={RUTAS.nosotros} className={Styles.buttonmas}>
+                            Conocé Bruma
+                        </Link>
+                    </div>
+                </div>
             </section>
 
-            {/* Contacto */}
-
+            {/* 3) Contacto */}
             <section className={Styles.contactoHome} aria-labelledby="contacto-titulo">
                 <div className={Styles.contactoContainer}>
 
@@ -408,6 +389,30 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* 4) Guía de degustación y suscripciones */}
+            <section className={Styles.guia} aria-labelledby="guia-titulo">
+                <span className={Styles.guiaEtiqueta}>
+                    Guía de degustación · Suscripciones
+                </span>
+
+                <h2 id="guia-titulo" className={Styles.guiaTitulo}>
+                    Encontrá tu próximo café favorito
+                </h2>
+
+                <p className={Styles.guiaTexto}>
+                    Guías de molienda según tu cafetera, notas de cata detalladas y
+                    suscripciones mensuales con envíos programados a tu medida.
+                </p>
+
+                <div className={Styles.guiaAcciones}>
+                    <Link to={RUTAS.productos} className={Styles.botonPrincipal}>
+                        Explorar todos los cafés
+                    </Link>
+                    <Link to={RUTAS.suscripcion} className={Styles.botonSecundario}>
+                        Armar mi suscripción
+                    </Link>
+                </div>
+            </section>
         </>
     );
 }

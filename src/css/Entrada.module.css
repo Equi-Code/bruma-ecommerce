@@ -5,23 +5,23 @@
    ========================= */
 
 .entrada {
-  position: relative;
-  isolation: isolate;
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100svh;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  background: #171614;
-  color: #f3efe7;
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: #171614;
+    color: #f3efe7;
 }
 
 .fondo {
-  position: absolute;
-  inset: 0;
-  z-index: -3;
-  background: #171614;
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background: #171614;
 }
 
 /* =========================
@@ -29,60 +29,58 @@
    ========================= */
 
 .marco {
-  position: absolute;
-  z-index: -2;
-  top: 19%;
-  left: 25%;
-  width: 50%;
-  height: 62%;
-  overflow: hidden;
-  border-radius: 18px;
-  background: #29251f;
-  box-shadow: 0 20px 80px rgb(0 0 0 / 35%);
+    position: absolute;
+    z-index: -2;
+    top: 19%;
+    left: 25%;
+    width: 50%;
+    height: 62%;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #29251f;
+    box-shadow: 0 20px 80px rgb(0 0 0 / 35%);
 
-  /* Convierte al marco en "contenedor": la escena de adentro se mide contra él (cqw / cqh) */
-  container-type: size;
+    /* Convierte al marco en "contenedor": la escena de adentro se mide contra él (cqw / cqh) */
+    container-type: size;
 
-  animation: expandir 2.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    animation: expandir 2.2s cubic-bezier(0.76, 0, 0.24, 1) forwards;
 }
 
 /* Escena: replica "object-fit: cover" pero con el tamaño exacto de la foto,
    así los % de adentro (el vapor) coinciden con los de la imagen. */
 .escena {
-  /* Proporción de la foto: ancho / alto en píxeles */
-  --ancho: max(100cqw, calc(100cqh * 1672 / 941));
-  --alto: calc(var(--ancho) * 941 / 1672);
+    /* Proporción de la foto: ancho / alto en píxeles */
+    --ancho: max(100cqw, calc(100cqh * 1672 / 941));
+    --alto: calc(var(--ancho) * 941 / 1672);
 
-  /* Punto de la foto que se prioriza al recortar (0 = izquierda/arriba, 1 = derecha/abajo).
+    /* Punto de la foto que se prioriza al recortar (0 = izquierda/arriba, 1 = derecha/abajo).
      0.72 mantiene la taza y el paquete a la vista en pantallas verticales (celular). */
-  --foco-x: 0.72;
-  --foco-y: 0.5;
+    --foco-x: 0.72;
+    --foco-y: 0.5;
 
-  position: absolute;
-  left: calc((100cqw - var(--ancho)) * var(--foco-x));
-  top: calc((100cqh - var(--alto)) * var(--foco-y));
-  width: var(--ancho);
-  height: var(--alto);
+    position: absolute;
+    left: calc((100cqw - var(--ancho)) * var(--foco-x));
+    top: calc((100cqh - var(--alto)) * var(--foco-y));
+    width: var(--ancho);
+    height: var(--alto);
 
-  animation: acercamiento 3.5s ease-out forwards;
+    animation: acercamiento 3.5s ease-out forwards;
 }
 
 .imagen {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .sombra {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgb(0 0 0 / 8%) 0%,
-    rgb(0 0 0 / 12%) 35%,
-    rgb(0 0 0 / 66%) 100%
-  );
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgb(0 0 0 / 8%) 0%,
+            rgb(0 0 0 / 12%) 35%,
+            rgb(0 0 0 / 66%) 100%);
 }
 
 /* =========================
@@ -92,71 +90,69 @@
    ========================= */
 
 .vapor {
-  position: absolute;
-  left: 66%;
-  top: 35%;
-  width: 9%;
-  height: 21%;
-  pointer-events: none;
+    position: absolute;
+    left: 66%;
+    top: 35%;
+    width: 9%;
+    height: 21%;
+    pointer-events: none;
 
-  /* "screen" aclara lo que hay debajo: el vapor se funde con la luz de la foto */
-  mix-blend-mode: screen;
+    /* "screen" aclara lo que hay debajo: el vapor se funde con la luz de la foto */
+    mix-blend-mode: screen;
 }
 
 .humo {
-  position: absolute;
-  bottom: 0;
-  left: var(--x);
-  width: var(--ancho-humo);
-  aspect-ratio: 1 / 2.4;
-  border-radius: 50%;
-  background: radial-gradient(
-    closest-side,
-    rgb(243 239 231 / 55%) 0%,
-    rgb(243 239 231 / 18%) 55%,
-    rgb(243 239 231 / 0%) 100%
-  );
-  filter: blur(5px);
-  opacity: 0;
-  transform-origin: 50% 100%;
-  will-change: translate, scale, opacity, transform;
+    position: absolute;
+    bottom: 0;
+    left: var(--x);
+    width: var(--ancho-humo);
+    aspect-ratio: 1 / 2.4;
+    border-radius: 50%;
+    background: radial-gradient(closest-side,
+            rgb(243 239 231 / 55%) 0%,
+            rgb(243 239 231 / 18%) 55%,
+            rgb(243 239 231 / 0%) 100%);
+    filter: blur(5px);
+    opacity: 0;
+    transform-origin: 50% 100%;
+    will-change: translate, scale, opacity, transform;
 
-  /* Dos movimientos a la vez: subir (translate/scale/opacity) y mecerse (transform) */
-  animation:
-    subirHumo var(--dur) ease-out var(--delay) infinite,
-    mecerHumo calc(var(--dur) * 0.6) ease-in-out var(--delay) infinite alternate;
+    /* Dos movimientos a la vez: subir (translate/scale/opacity) y mecerse (transform) */
+    animation:
+        subirHumo var(--dur) ease-out var(--delay) infinite,
+        mecerHumo calc(var(--dur) * 0.6) ease-in-out var(--delay) infinite alternate;
 }
 
 @keyframes subirHumo {
-  0% {
-    opacity: 0;
-    translate: 0 12%;
-    scale: 0.55 0.5;
-  }
+    0% {
+        opacity: 0;
+        translate: 0 12%;
+        scale: 0.55 0.5;
+    }
 
-  18% {
-    opacity: 0.6;
-  }
+    18% {
+        opacity: 0.6;
+    }
 
-  60% {
-    opacity: 0.32;
-  }
+    60% {
+        opacity: 0.32;
+    }
 
-  100% {
-    opacity: 0;
-    translate: 0 -140%;
-    scale: 1.5 1.35;
-  }
+    100% {
+        opacity: 0;
+        translate: 0 -140%;
+        scale: 1.5 1.35;
+    }
 }
 
 @keyframes mecerHumo {
-  from {
-    transform: translateX(calc(var(--deriva) * -1)) rotate(-8deg);
-  }
+    from {
+        transform: translateX(calc(var(--deriva) * -1)) rotate(-8deg);
+    }
 
-  to {
-    transform: translateX(var(--deriva)) rotate(8deg);
-  }
+    to {
+        transform: translateX(var(--deriva)) rotate(8deg);
+    }
 }
 
 /* =========================
@@ -164,104 +160,104 @@
    ========================= */
 
 .contenido {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: min(90%, 700px);
-  text-align: center;
-  opacity: 0;
-  transform: translateY(14px);
-  animation: aparecer 1s ease-out 1.65s forwards;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(90%, 700px);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: aparecer 1s ease-out 1.65s forwards;
 }
 
 .etiqueta {
-  margin-bottom: 22px;
-  font-size: 0.67rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
+    margin-bottom: 22px;
+    font-size: 0.67rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
 }
 
 .logo {
-  margin: 0;
-  color: #f3efe7;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.8rem, 8vw, 5.6rem);
-  font-weight: 400;
-  letter-spacing: 0.34em;
-  /* Compensa el espacio que deja el letter-spacing después de la última letra */
-  padding-left: 0.34em;
-  line-height: 1;
+    margin: 0;
+    color: #f3efe7;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.8rem, 8vw, 5.6rem);
+    font-weight: 400;
+    letter-spacing: 0.34em;
+    /* Compensa el espacio que deja el letter-spacing después de la última letra */
+    padding-left: 0.34em;
+    line-height: 1;
 }
 
 .linea {
-  width: 44px;
-  height: 1px;
-  margin: 26px 0 18px;
-  background: #d9d3c9;
-  opacity: 0.8;
+    width: 44px;
+    height: 1px;
+    margin: 26px 0 18px;
+    background: #d9d3c9;
+    opacity: 0.8;
 }
 
 .frase {
-  margin: 0 0 34px;
-  color: #f3efe7;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.2rem, 2.8vw, 1.65rem);
-  font-weight: 400;
-  letter-spacing: 0.025em;
+    margin: 0 0 34px;
+    color: #f3efe7;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.2rem, 2.8vw, 1.65rem);
+    font-weight: 400;
+    letter-spacing: 0.025em;
 }
 
 .boton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  min-height: 48px;
-  padding: 0 24px;
-  border: 1px solid rgb(243 239 231 / 75%);
-  color: #f3efe7;
-  background: rgb(23 22 20 / 18%);
-  text-decoration: none;
-  font-size: 0.76rem;
-  letter-spacing: 0.1em;
-  transition:
-    background 250ms ease,
-    color 250ms ease,
-    border-color 250ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    min-height: 48px;
+    padding: 0 24px;
+    border: 1px solid rgb(243 239 231 / 75%);
+    color: #f3efe7;
+    background: rgb(23 22 20 / 18%);
+    text-decoration: none;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    transition:
+        background 250ms ease,
+        color 250ms ease,
+        border-color 250ms ease;
 }
 
 .boton:hover {
-  color: #171614;
-  background: #f3efe7;
-  border-color: #f3efe7;
+    color: #171614;
+    background: #f3efe7;
+    border-color: #f3efe7;
 }
 
 .boton:focus-visible {
-  outline: 2px solid #f3efe7;
-  outline-offset: 5px;
+    outline: 2px solid #f3efe7;
+    outline-offset: 5px;
 }
 
 .boton span {
-  font-size: 1rem;
-  transition: transform 250ms ease;
+    font-size: 1rem;
+    transition: transform 250ms ease;
 }
 
 .boton:hover span {
-  transform: translate(3px, -3px);
+    transform: translate(3px, -3px);
 }
 
 .pie {
-  position: absolute;
-  bottom: 28px;
-  left: 20px;
-  right: 20px;
-  color: rgb(243 239 231 / 75%);
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
-  text-align: center;
-  opacity: 0;
-  animation: aparecer 0.8s ease-out 2s forwards;
+    position: absolute;
+    bottom: 28px;
+    left: 20px;
+    right: 20px;
+    color: rgb(243 239 231 / 75%);
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-align: center;
+    opacity: 0;
+    animation: aparecer 0.8s ease-out 2s forwards;
 }
 
 /* =========================
@@ -269,39 +265,104 @@
    ========================= */
 
 @keyframes expandir {
-  0% {
-    top: 19%;
-    left: 25%;
-    width: 50%;
-    height: 62%;
-    border-radius: 18px;
-  }
+    0% {
+        top: 19%;
+        left: 25%;
+        width: 50%;
+        height: 62%;
+        border-radius: 18px;
+    }
 
-  100% {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
+    100% {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
 }
 
 /* Usa la propiedad "scale" (no "transform"): el zoom escala la foto y el vapor juntos */
 @keyframes acercamiento {
-  from {
-    scale: 1.04;
-  }
+    from {
+        scale: 1.04;
+    }
 
-  to {
-    scale: 1.12;
-  }
+    to {
+        scale: 1.12;
+    }
 }
 
 @keyframes aparecer {
-  to {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   Salida hacia el Home
+   La foto hace un último acercamiento, el texto se desvanece y una niebla del color
+   de la página (--bg) cubre todo. El Home aparece desde esa misma niebla.
+   ========================= */
+
+.cortina {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.saliendo .escena {
+    animation: salidaZoom 900ms ease-in forwards;
+}
+
+.saliendo .contenido,
+.saliendo .pie {
+    animation: salidaContenido 450ms ease-in forwards;
+}
+
+.saliendo .cortina {
     opacity: 1;
-    transform: translateY(0);
-  }
+    animation: nieblaEntra 900ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes salidaZoom {
+    from {
+        scale: 1.12;
+    }
+
+    to {
+        scale: 1.28;
+    }
+}
+
+@keyframes salidaContenido {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-14px);
+    }
+}
+
+/* La foto se desenfoca mientras el color de la página la cubre: efecto de bruma */
+@keyframes nieblaEntra {
+    from {
+        background-color: transparent;
+        -webkit-backdrop-filter: blur(0);
+        backdrop-filter: blur(0);
+    }
+
+    to {
+        background-color: var(--bg);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+    }
 }
 
 /* =========================
@@ -309,45 +370,45 @@
    ========================= */
 
 @media (max-width: 600px) {
-  .marco {
-    top: 23%;
-    left: 9%;
-    width: 82%;
-    height: 54%;
-  }
-
-  .logo {
-    letter-spacing: 0.22em;
-    padding-left: 0.22em;
-  }
-
-  .etiqueta {
-    font-size: 0.58rem;
-    letter-spacing: 0.22em;
-  }
-
-  .pie {
-    bottom: 20px;
-    font-size: 0.5rem;
-  }
-
-  @keyframes expandir {
-    0% {
-      top: 23%;
-      left: 9%;
-      width: 82%;
-      height: 54%;
-      border-radius: 16px;
+    .marco {
+        top: 23%;
+        left: 9%;
+        width: 82%;
+        height: 54%;
     }
 
-    100% {
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 0;
+    .logo {
+        letter-spacing: 0.22em;
+        padding-left: 0.22em;
     }
-  }
+
+    .etiqueta {
+        font-size: 0.58rem;
+        letter-spacing: 0.22em;
+    }
+
+    .pie {
+        bottom: 20px;
+        font-size: 0.5rem;
+    }
+
+    @keyframes expandir {
+        0% {
+            top: 23%;
+            left: 9%;
+            width: 82%;
+            height: 54%;
+            border-radius: 16px;
+        }
+
+        100% {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+        }
+    }
 }
 
 /* =========================
@@ -355,33 +416,37 @@
    ========================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .marco {
-    animation: none;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
+    .marco {
+        animation: none;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
 
-  .escena {
-    animation: none;
-    scale: 1.04;
-  }
+    .escena {
+        animation: none;
+        scale: 1.04;
+    }
 
-  .humo {
-    animation: none;
-    display: none;
-  }
+    .humo {
+        animation: none;
+        display: none;
+    }
 
-  .contenido,
-  .pie {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
+    .cortina {
+        display: none;
+    }
 
-  .boton,
-  .boton span {
-    transition: none;
-  }
+    .contenido,
+    .pie {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .boton,
+    .boton span {
+        transition: none;
+    }
 }

@@ -1,29 +1,53 @@
-import { useEffect, useState } from 'react'
 
-/**
- * Carga /data/productos.json una vez.
- * Devuelve { cargando, error, productos }.
- * Puedes usarlo también en ProductoDetalle, Home, etc. en lugar de repetir el fetch.
- */
+import { useEffect, useState } from 'react'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../../firebase/config' // Verificá esta ruta según tu proyecto
+
 export default function useProductos() {
-    const [estado, setEstado] = useState({ cargando: true, error: false, productos: [] })
+    const [estado, setEstado] = useState({
+        cargando: true,
+        error: false,
+        productos: [],
+    })
 
     useEffect(() => {
-        const controlador = new AbortController()
+        let activo = true
 
-        fetch('/data/productos.json', { signal: controlador.signal })
-            .then((respuesta) => {
-                if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`)
-                return respuesta.json()
-            })
-            .then((productos) => setEstado({ cargando: false, error: false, productos }))
-            .catch((error) => {
-                if (error.name === 'AbortError') return
-                console.error('Error al cargar los productos:', error)
-                setEstado({ cargando: false, error: true, productos: [] })
-            })
+        const cargarProductos = async () => {
+            try {
+                const referenciaProductos = collection(db, 'productos')
+                const resultado = await getDocs(referenciaProductos)
 
-        return () => controlador.abort()
+                const productos = resultado.docs.map((documento) => ({
+                    ...documento.data(),
+                    firestoreId: documento.id,
+                }))
+
+                if (activo) {
+                    setEstado({
+                        cargando: false,
+                        error: false,
+                        productos,
+                    })
+                }
+            } catch (error) {
+                console.error('Error al cargar productos desde Firestore:', error)
+
+                if (activo) {
+                    setEstado({
+                        cargando: false,
+                        error: true,
+                        productos: [],
+                    })
+                }
+            }
+        }
+
+        cargarProductos()
+
+        return () => {
+            activo = false
+        }
     }, [])
 
     return estado

@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Styles from '../css/About.module.css'
-import equipo from '../../public/data/equipo.json' // ajusta la ruta a donde esté tu archivo
+
 
 const RUTAS = {
     productos: '/productos',
@@ -112,6 +113,25 @@ const ICONOS = {
 }
 
 export default function Nosotros() {
+
+        const [equipo, setEquipo] = useState([])
+
+    useEffect(() => {
+        fetch('/data/equipo.json')
+            .then((respuesta) => {
+                if (!respuesta.ok) {
+                    throw new Error('No se pudo cargar el equipo')
+                }
+                return respuesta.json()
+            })
+            .then((datos) => setEquipo(datos))
+            .catch((error) => {
+                console.error('Error al cargar el equipo:', error)
+            })
+    }, [])
+
+
+
     return (
         <main>
 

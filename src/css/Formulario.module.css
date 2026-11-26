@@ -1,201 +1,433 @@
-/* 
-   Formulario de producto — BRUMA
- */
+
+/* =========================================
+   BRUMA - FORMULARIO DE PRODUCTOS
+   ========================================= */
 
 .form {
-    --error: #8C3B2A;
+    --form-fondo: #F3EFE7;
+    --form-superficie: #FBF8F3;
+    --form-texto: #1C1C17;
+    --form-secundario: #716B62;
+    --form-acento: #8A6A4A;
+    --form-borde: #D9D3C9;
 
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
-
+    gap: 0;
     width: 100%;
-    max-width: 560px;
-    margin: var(--space-lg) auto;
-    padding: var(--space-lg);
-
-    background-color: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-
-    font-family: var(--sans);
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--form-texto);
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-family: 'Inter', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-    .form {
-        --error: #E0907C;
-    }
+.introForm {
+    padding: 0 0 25px;
+    border-bottom: 1px solid var(--form-borde);
+}
+
+.eyebrow {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--form-acento);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
 }
 
 .tituloForm {
-    margin-bottom: var(--space-xs);
-
-    font-size: 2rem;
+    margin: 0;
+    color: var(--form-texto);
+    font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+    font-size: 34px;
     font-weight: 500;
     line-height: 1.1;
 }
 
-.campo {
-    display: flex;
-    flex-direction: column;
+.introForm > p {
+    margin: 8px 0 0;
+    color: var(--form-secundario);
+    font-size: 11px;
+    line-height: 1.6;
 }
 
-.fila {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-md);
+.notaObligatorios {
+    display: block;
+    margin-top: 13px;
+    color: var(--form-secundario);
+    font-size: 9px;
+}
+
+/* SECCIONES */
+
+.seccion {
+    padding: 23px 0;
+    border-bottom: 1px solid var(--form-borde);
+}
+
+.seccionCabecera {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 19px;
+}
+
+.numeroSeccion {
+    flex-shrink: 0;
+    padding-top: 2px;
+    color: var(--form-acento);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1;
+}
+
+.seccionCabecera h3 {
+    margin: 0;
+    color: var(--form-texto);
+    font-family: 'Cormorant Garamond', 'EB Garamond', serif;
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.seccionCabecera p {
+    margin: 5px 0 0;
+    color: var(--form-secundario);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.seccionContenido {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* CAMPOS */
+
+.campo {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
 }
 
 .label {
-    margin-bottom: var(--space-xs);
-
-    font-size: 0.8rem;
+    color: #49443D;
+    font-size: 9px;
     font-weight: 600;
-    letter-spacing: 0.06em;
-
-    color: var(--text-h);
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
 }
 
 .input {
     width: 100%;
-    padding: 12px 14px;
-
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    background-color: transparent;
-    color: var(--text-h);
-
-    font-family: var(--sans);
-    font-size: 0.95rem;
-    line-height: 1.4;
-
-    transition:
-        border-color var(--ease),
-        box-shadow var(--ease);
+    min-width: 0;
+    min-height: 40px;
+    padding: 10px 11px;
+    border: 1px solid var(--form-borde);
+    border-radius: 3px;
+    outline: none;
+    background: var(--form-superficie);
+    color: var(--form-texto);
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .input::placeholder {
-    color: var(--text);
-    opacity: 0.65;
+    color: #A29B91;
+    opacity: 1;
 }
 
 .input:hover {
-    border-color: var(--accent-border);
+    border-color: #B6A58F;
 }
 
 .input:focus {
-    outline: 2px solid transparent;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-bg);
+    border-color: var(--form-acento);
+    box-shadow: 0 0 0 2px rgb(138 106 74 / 12%);
+    background: #fff;
 }
 
-/* Solo marca error después de que la persona interactuó */
+.input:disabled {
+    background: #EAE5DC;
+    color: #81796F;
+    cursor: not-allowed;
+}
+
 .input:user-invalid {
-    border-color: var(--error);
+    border-color: #B65E4A;
 }
 
 .textarea {
-    min-height: 110px;
+    min-height: 90px;
     resize: vertical;
 }
 
-
-.input[type='file'] {
-    padding: 8px;
-    cursor: pointer;
+.gridDos,
+.gridTres {
+    display: grid;
+    gap: 13px;
 }
 
-.input[type='file']::file-selector-button {
-    margin-right: 12px;
-    padding: 8px 14px;
+.gridDos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 
-    border: 1px solid var(--accent-border);
-    border-radius: var(--radius-sm);
-    background-color: var(--accent-bg);
-    color: var(--accent-hover);
+.gridTres {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 
-    font-family: var(--sans);
-    font-size: 0.8rem;
+/* ARCHIVOS */
+
+.inputFile {
+    width: 100%;
+    min-width: 0;
+    padding: 9px;
+    border: 1px dashed #BFB5A7;
+    border-radius: 3px;
+    background: var(--form-superficie);
+    color: var(--form-secundario);
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+}
+
+.inputFile::file-selector-button {
+    margin-right: 10px;
+    padding: 8px 11px;
+    border: 1px solid var(--form-acento);
+    border-radius: 2px;
+    background: #171614;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
     font-weight: 600;
-    letter-spacing: 0.04em;
-
     cursor: pointer;
-
-    transition:
-        background-color var(--ease),
-        color var(--ease);
+    transition: background 0.2s;
 }
 
-.input[type='file']::file-selector-button:hover {
-    background-color: var(--accent);
-    color: var(--on-accent);
+.inputFile::file-selector-button:hover {
+    background: var(--form-acento);
 }
 
 .ayuda {
-    margin-top: 6px;
-
-    font-size: 0.75rem;
-    line-height: 1.4;
-
-    color: var(--text);
+    margin: 0;
+    color: var(--form-secundario);
+    font-size: 10px;
+    line-height: 1.6;
 }
 
+/* SUBGRUPOS Y LISTAS */
 
-.boton {
-    width: 100%;
-    margin-top: var(--space-xs);
-    padding: 14px 20px;
+.subgrupo {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-top: 5px;
+    padding-top: 16px;
+    border-top: 1px solid #E5E0D8;
+}
 
-    border: 1px solid var(--accent);
-    border-radius: var(--radius-sm);
-    background-color: var(--accent);
-    color: var(--on-accent);
+.subgrupo h4 {
+    margin: 0;
+    color: var(--form-texto);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 500;
+}
 
-    font-family: var(--sans);
-    font-size: 0.8rem;
+.itemLista {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.itemLista .input {
+    flex: 1;
+}
+
+.botonAgregar {
+    align-self: flex-start;
+    min-height: 34px;
+    padding: 0 12px;
+    border: 1px solid var(--form-borde);
+    border-radius: 3px;
+    background: transparent;
+    color: var(--form-acento);
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-
     cursor: pointer;
-
-    transition:
-        background-color var(--ease),
-        color var(--ease),
-        transform var(--ease);
+    transition: all 0.2s;
 }
 
-.boton:hover {
-    background-color: transparent;
-    color: var(--accent-hover);
-    transform: translateY(-2px);
+.botonAgregar span {
+    margin-right: 4px;
+    font-size: 15px;
+    vertical-align: -1px;
 }
 
-.boton:focus-visible {
-    outline: 2px solid var(--accent);
+.botonAgregar:hover {
+    border-color: var(--form-acento);
+    background: #EEE7DC;
+}
+
+.botonQuitar {
+    flex-shrink: 0;
+    min-height: 32px;
+    padding: 0 8px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background: transparent;
+    color: #8C5B4C;
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.botonQuitar:hover {
+    border-color: #E2C9C0;
+    background: #F6EAE5;
+}
+
+/* TARJETAS PARA MÉTODOS Y PRESENTACIONES */
+
+.tarjetaLista {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding: 15px;
+    border: 1px solid var(--form-borde);
+    border-radius: 3px;
+    background: var(--form-superficie);
+}
+
+.tarjetaListaCabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #E5E0D8;
+}
+
+.tarjetaListaCabecera > span {
+    color: var(--form-acento);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+}
+
+/* ACCIONES */
+
+.accionesForm {
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    gap: 9px;
+    margin-top: 22px;
+    padding: 15px 0;
+    background: var(--form-fondo);
+    border-top: 1px solid var(--form-borde);
+}
+
+.botonGuardar,
+.botonCancelar {
+    min-height: 43px;
+    padding: 0 17px;
+    border: 1px solid #171614;
+    border-radius: 3px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.botonGuardar {
+    flex: 1;
+    background: #171614;
+    color: #fff;
+}
+
+.botonGuardar:hover {
+    border-color: var(--form-acento);
+    background: var(--form-acento);
+}
+
+.botonCancelar {
+    background: transparent;
+    color: var(--form-texto);
+}
+
+.botonCancelar:hover {
+    background: #EAE5DC;
+}
+
+.botonGuardar:disabled,
+.botonCancelar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.botonGuardar:focus-visible,
+.botonCancelar:focus-visible,
+.botonAgregar:focus-visible,
+.botonQuitar:focus-visible {
+    outline: 2px solid var(--form-acento);
     outline-offset: 3px;
 }
 
-.boton:disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-    transform: none;
-}
-
+/* RESPONSIVE */
 
 @media (max-width: 600px) {
-    .form {
-        margin: var(--space-md) auto;
-        padding: var(--space-md) var(--space-sm);
-        border-radius: var(--radius-md);
+    .tituloForm {
+        font-size: 30px;
     }
 
-    .fila {
+    .gridDos {
         grid-template-columns: 1fr;
     }
 
-    .tituloForm {
-        font-size: 1.7rem;
+    .gridTres {
+        grid-template-columns: 1fr;
+    }
+
+    .seccion {
+        padding: 19px 0;
+    }
+
+    .seccionCabecera h3 {
+        font-size: 21px;
+    }
+
+    .itemLista {
+        align-items: stretch;
+    }
+
+    .botonQuitar {
+        padding: 0 5px;
+    }
+
+    .accionesForm {
+        flex-direction: column;
+    }
+
+    .botonGuardar,
+    .botonCancelar {
+        width: 100%;
     }
 }
